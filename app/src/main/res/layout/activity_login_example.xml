@@ -16,6 +16,9 @@
         <ImageView
                 android:layout_width="162dp"
                 android:layout_height="152dp" app:srcCompat="@drawable/profile" android:id="@+id/profile"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="53dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,6 +37,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:minHeight="48dp" android:textColorHighlight="#373737"
                 android:textColorLink="#00233E"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="27dp"/>
         <EditText
                 android:id="@+id/et_password"
                 android:hint="Password"
@@ -57,9 +63,12 @@
                     android:layout_height="wrap_content" android:fontFamily="sans-serif-light" android:textSize="16sp"
                     android:textStyle="bold" android:background="@drawable/rounded_corner" app:iconPadding="15dp"
                     app:backgroundTint="#000000" app:cornerRadius="15dp"/>
+            <Space
+                    android:layout_width="85dp"
+                    android:layout_height="22dp" android:layout_weight="1"/>
             <Button
                     android:id="@+id/btn_submit"
-                    android:text="Submit"
+                    android:text="Login"
                     android:textAllCaps="false"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content" android:fontFamily="sans-serif-thin" android:textSize="16sp"
