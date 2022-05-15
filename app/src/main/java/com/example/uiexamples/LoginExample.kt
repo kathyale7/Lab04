@@ -22,6 +22,7 @@ class LoginExample : AppCompatActivity() {
         var et_password = findViewById(R.id.et_password) as EditText
         var btn_reset = findViewById(R.id.btn_reset) as Button
         var btn_submit = findViewById(R.id.btn_submit) as Button
+        var btn_register1 = findViewById(R.id.btn_newperson) as Button
 
         btn_reset.setOnClickListener {
             // clearing user_name and password edit text views on reset button click
@@ -38,7 +39,7 @@ class LoginExample : AppCompatActivity() {
                 val bundle = Bundle()
                 val Login = personas.loginP(user_name.toString(), password.toString())
                 val i = Intent(this, MenuExample::class.java)
-                i.putExtra("msg", "MENSAJE DE Login al Menú")
+                i.putExtra("msg", "Mensaje de Login al Menú")
                 i.putExtra("Login", Login)
 //            i.putExtra("passw", password.toString())
                 // start your next activity
@@ -49,6 +50,11 @@ class LoginExample : AppCompatActivity() {
                 Toast.makeText(this, "El usuario no se encuentra registrado", Toast.LENGTH_SHORT).show()
             }
 
+        }
+        btn_register1.setOnClickListener {
+            val i = Intent(this, InsertarExample::class.java)
+
+            startActivity(i)
         }
 
     }

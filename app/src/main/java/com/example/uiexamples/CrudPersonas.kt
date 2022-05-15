@@ -1,5 +1,6 @@
 package com.example.uiexamples
 
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.os.Bundle
@@ -136,8 +137,25 @@ class CrudPersonas : AppCompatActivity() {
         val add: FloatingActionButton = findViewById(R.id.add)
         add.setOnClickListener { view ->
             Toast.makeText(this, "Dentro del botón flotante", Toast.LENGTH_SHORT).show()
-            Snackbar.make(view, "Botón para insertar", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Se inserto a la persona correctamente", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+
+            persona = Persona("luc", "123", "Lucia", R.drawable.foto07)
+            personas.addPersona(persona)
+            archived.add(persona)
+            lista.adapter?.notifyDataSetChanged()
+            adaptador = RecyclerView_Adapter(personas.getPersonas())
+            lista.adapter = adaptador
+
+                //val bundle = Bundle()
+
+                //val i = Intent(this, InsertarExample::class.java)
+
+//
+                //startActivity(i)
+                // your code to validate the user_name and password combination
+                // and verify the same
+
         }
 
 
