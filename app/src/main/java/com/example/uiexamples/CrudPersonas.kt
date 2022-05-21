@@ -1,5 +1,6 @@
 package com.example.uiexamples
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
@@ -96,19 +97,31 @@ class CrudPersonas : AppCompatActivity() {
                             adaptador = RecyclerView_Adapter(personas.getPersonas())
                             lista.adapter = adaptador
                         }else{
+
+                            position = viewHolder.adapterPosition
                             persona = Persona(personas.getPersonas()[position].user, personas.getPersonas()[position].password, personas.getPersonas()[position].nombre, personas.getPersonas()[position].foto)
                             archived.add(persona)
 
-                            personas.deletePerson(position)
-                            lista.adapter?.notifyItemRemoved(position)
 
-                            Snackbar.make(lista, persona.nombre + "Se editaría...", Snackbar.LENGTH_LONG).setAction("Undo") {
+
+                            val i= Intent(this@CrudPersonas, ModificarExample::class.java)
+                            i.putExtra("puser", personas.getPersonas()[position].user)
+                            i.putExtra("ppass", personas.getPersonas()[position].password)
+                            i.putExtra("pname", personas.getPersonas()[position].nombre)
+                            i.putExtra("poss", position)
+                            startActivity(i)
+
+
+
+
+                            Snackbar.make(lista, persona.nombre + "Se editó...", Snackbar.LENGTH_LONG).setAction("Undo") {
                                 archived.removeAt(archived.lastIndexOf(persona))
                                 personas.getPersonas().add(position, persona)
                                 lista.adapter?.notifyItemInserted(position)
                             }.show()
                             adaptador = RecyclerView_Adapter(personas.getPersonas())
                             lista.adapter = adaptador
+
                             //getListOfPersons()
                         }
                     }
@@ -168,5 +181,11 @@ class CrudPersonas : AppCompatActivity() {
         }
         adaptador = RecyclerView_Adapter(Npersonas)
         lista.adapter = adaptador
+    }
+
+    private fun alert(context: Context, text: String) {
+        val intent = Intent(context, ModificarExample::class.java)
+        intent.putExtra("text", text)
+        context.startActivity(intent)
     }
 }

@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Lab03/Lab03JobApplication/app/src/main/res/layout/activity_crud_personas.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Lab03/Lab03JobApplication/app/src/main/res/layout/activity_insertar_example.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Lab03/Lab03JobApplication/app/src/main/res/layout/activity_job_application.xml" value="0.33" />
+        <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Lab03/Lab03JobApplication/app/src/main/res/layout/activity_login_example.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Lab03/Lab03JobApplication/app/src/main/res/layout/nav_header_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Lab05Extra/Lab05Extra/RecicleView_RegisterUsers/app/src/main/res/layout/activity_login_example.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Lab05Extra/Lab05Extra/RecicleView_RegisterUsers/app/src/main/res/layout/activity_modificar_example.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Login-NavDraw-RecyclerViewVer1.0/UIExamples/app/src/main/res/drawable/rounded_corner.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Login-NavDraw-RecyclerViewVer1.0/UIExamples/app/src/main/res/drawable/side_nav_bar.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Login-NavDraw-RecyclerViewVer1.0/UIExamples/app/src/main/res/layout/activity_crud_personas.xml" value="0.17074275362318841" />
@@ -17,6 +24,7 @@
         <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Login-NavDraw-RecyclerViewVer1.0/UIExamples/app/src/main/res/layout/fragment_slideshow.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Login-NavDraw-RecyclerViewVer1.0/UIExamples/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
         <entry key="..\:/Users/ksand/OneDrive - Instituto Nacional de Aprendizaje/Documents/Universidad/I Semestre 2022/Plataformas moviles/Login-NavDraw-RecyclerViewVer1.0/UIExamples/app/src/main/res/layout/templatepersonas.xml" value="0.33" />
+        <entry key="..\:/Users/rolan/Desktop/Moviles/Labs/LabsExtra/Lab05Extra/RecicleView_RegisterUsers/app/src/main/res/layout/activity_modificar_example.xml" value="0.264" />
       </map>
     </option>
   </component>
