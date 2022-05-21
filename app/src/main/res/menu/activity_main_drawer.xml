@@ -22,4 +22,15 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Personas" />
     </group>
+    <group
+            android:id="@+id/grp_jobs">
+        <item
+                android:id="@+id/nav_jobapplication"
+                android:icon="@drawable/portfolio"
+                android:title="Job Application"/>
+        <item
+                android:id="@+id/nav_listapplication"
+                android:icon="@drawable/list"
+                android:title="List Applications"/>
+    </group>
 </menu>

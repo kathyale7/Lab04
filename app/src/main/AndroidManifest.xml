@@ -5,10 +5,14 @@
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
+            android:label="Job Application"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.UIExamples">
+
+        <activity
+                android:name=".CrudJobforms"
+                android:exported="true"/>
         <activity
                 android:name=".JobApplication"
                 android:exported="true"/>
@@ -31,7 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

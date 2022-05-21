@@ -109,6 +109,14 @@ class MenuExample : AppCompatActivity(), NavigationView.OnNavigationItemSelected
                 val i = Intent(this, CrudPersonas::class.java)
                 startActivity(i)
             }
+            R.id.nav_jobapplication -> {
+                val i = Intent(this, JobApplication::class.java)
+                startActivity(i)
+            }
+            R.id.nav_listapplication -> {
+                val i = Intent(this, CrudJobforms::class.java)
+                startActivity(i)
+            }
         }
         return true
     }

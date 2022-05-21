@@ -19,7 +19,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.UIExamples.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.UIExamples.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <style name="Theme.UIExamples.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.UIExamples.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 </resources>

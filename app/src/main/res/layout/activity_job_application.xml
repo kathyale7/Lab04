@@ -9,10 +9,11 @@
 
     <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:id="@+id/linearLayout">
+            android:layout_width="410dp"
+            android:layout_height="703dp" android:id="@+id/linearLayout" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="28dp" app:layout_constraintStart_toStartOf="parent">
         <ImageView
-                android:layout_width="106dp"
+                android:layout_width="142dp"
                 android:layout_height="85dp" app:srcCompat="@drawable/portfolio" android:id="@+id/imageView3"
                 android:layout_weight="1"/>
         <Space
@@ -20,17 +21,17 @@
                 android:layout_height="wrap_content" android:layout_weight="1"/>
         <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="290dp"
-                android:layout_height="80dp" android:layout_weight="1">
+                android:layout_width="wrap_content"
+                android:layout_height="78dp" android:layout_weight="1">
             <TextView
                     android:text="Job Application"
-                    android:layout_width="match_parent"
+                    android:layout_width="266dp"
                     android:layout_height="43dp" android:id="@+id/bannerJobApplication" android:layout_weight="1"
                     android:textStyle="bold" android:textColor="@color/black" android:textAlignment="viewStart"
                     android:textSize="24sp" android:editable="false"/>
             <TextView
                     android:text="Please complete the form below to apply for a position with us."
-                    android:layout_width="match_parent"
+                    android:layout_width="230dp"
                     android:layout_height="45dp" android:id="@+id/bannerJobDescription" android:layout_weight="1"
                     android:textColor="#000000" android:textSize="14sp" android:textAlignment="viewStart"
                     android:editable="false" android:duplicateParentState="false"/>
@@ -38,8 +39,8 @@
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
-            android:layout_width="391dp"
-            android:layout_height="618dp"
+            android:layout_width="359dp"
+            android:layout_height="499dp"
             app:layout_constraintTop_toTopOf="@+id/linearLayout" android:layout_marginTop="104dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
     >
@@ -49,50 +50,54 @@
                 android:layout_height="wrap_content">
             <TextView
                     android:text="Full Name"
-                    android:layout_width="133dp"
-                    android:layout_height="34dp" android:id="@+id/textView5" android:textSize="18sp"
+                    android:layout_width="118dp"
+                    android:layout_height="34dp" android:id="@+id/txtVFullName" android:textSize="16sp"
                     android:textStyle="bold" android:textColor="#000000"/>
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/txtFirstName" android:layout_weight="1" android:textColorHighlight="#838383"
-                    android:textColorLink="#474646" android:hint="First Name"/>
+                    android:id="@+id/txtFirstName" android:layout_weight="1"
+                    android:hint="First Name" android:textSize="16sp"
+                    tools:ignore="TouchTargetSizeCheck"/>
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/txtLastName" android:layout_weight="1" android:textColorHighlight="#838383"
-                    android:textColorLink="#474646" android:hint="Last Name"/>
+                    android:textColorLink="#474646" android:hint="Last Name" android:textSize="16sp"
+                    tools:ignore="TouchTargetSizeCheck"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="181dp">
             <TextView
-                    android:text="Current Address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp" android:id="@+id/textView7" android:layout_weight="1"
-                    android:textSize="18sp" android:textStyle="bold" android:textColor="#000000"
-                    android:textAlignment="center"/>
+                    android:text="Current  Address    "
+                    android:layout_width="94dp"
+                    android:layout_height="match_parent" android:id="@+id/textView7" android:layout_weight="1"
+                    android:textSize="16sp" android:textStyle="bold" android:textColor="#000000"
+                    android:textAlignment="textStart"/>
             <LinearLayout
                     android:orientation="vertical"
-                    android:layout_width="257dp"
+                    android:layout_width="240dp"
                     android:layout_height="match_parent">
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPostalAddress"
                         android:ems="10"
-                        android:id="@+id/editTextTextPostalAddress" android:hint="Street Address"/>
+                        android:id="@+id/txtStreetAddress" android:hint="Street Address"
+                        android:textSize="16sp" android:minHeight="43dp" tools:ignore="TouchTargetSizeCheck"/>
                 <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPostalAddress"
                         android:ems="10"
-                        android:id="@+id/editTextTextPersonName4" android:hint="Street Line 2"/>
+                        android:id="@+id/txtStreetAddress2" android:hint="Street Line 2" android:textSize="16sp"
+                        android:minHeight="43dp" tools:ignore="TouchTargetSizeCheck"/>
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
@@ -102,31 +107,34 @@
                             android:layout_height="match_parent"
                             android:inputType="textPersonName"
                             android:ems="10"
-                            android:id="@+id/editTextTextPersonName8" android:layout_weight="1" android:hint="City"/>
+                            android:id="@+id/txtCity" android:layout_weight="1" android:hint="City"
+                            android:textSize="16sp" tools:ignore="TouchTargetSizeCheck"/>
                     <EditText
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:inputType="textPersonName"
                             android:ems="10"
-                            android:id="@+id/editTextTextPersonName9" android:layout_weight="1"
-                            android:hint="State/Province"/>
+                            android:id="@+id/txtState" android:layout_weight="1"
+                            android:hint="State/Province" android:textSize="16sp" tools:ignore="TouchTargetSizeCheck"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                     <EditText
-                            android:layout_width="128dp"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
                             android:inputType="textPersonName"
                             android:ems="10"
-                            android:id="@+id/editTextTextPersonName6" android:hint="PortalZip Code"/>
+                            android:id="@+id/txtZipCode" android:hint="Postal/Zip Code"
+                            android:textSize="16sp" tools:ignore="TouchTargetSizeCheck"/>
                     <EditText
-                            android:layout_width="127dp"
-                            android:layout_height="wrap_content"
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
                             android:inputType="textPersonName"
                             android:ems="10"
-                            android:id="@+id/editTextTextPersonName5" android:hint="Country"/>
+                            android:id="@+id/txtCountry" android:hint="Country" android:textSize="16sp"
+                            tools:ignore="TouchTargetSizeCheck"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -136,16 +144,17 @@
                 android:layout_height="wrap_content">
             <TextView
                     android:text="Email Address"
-                    android:layout_width="wrap_content"
+                    android:layout_width="115dp"
                     android:layout_height="wrap_content" android:id="@+id/textView8" android:layout_weight="1"
-                    android:textSize="18sp" android:textColor="#000000" android:textStyle="bold"/>
+                    android:textSize="16sp" android:textColor="#000000"
+                    android:textAlignment="textStart" android:textStyle="bold"/>
             <EditText
-                    android:layout_width="239dp"
+                    android:layout_width="235dp"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:ems="10"
-                    android:id="@+id/editTextTextEmailAddress" android:layout_weight="1"
-                    android:hint="ex: name@gmail.com"/>
+                    android:id="@+id/txtEmail" android:layout_weight="1"
+                    android:hint="ex: name@gmail.com" android:textSize="16sp" tools:ignore="TouchTargetSizeCheck"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
@@ -153,56 +162,69 @@
                 android:layout_height="wrap_content">
             <TextView
                     android:text="Phone Number"
-                    android:layout_width="206dp"
+                    android:layout_width="199dp"
                     android:layout_height="wrap_content" android:id="@+id/textView9" android:layout_weight="1"
-                    android:textSize="18sp" android:textStyle="bold" android:textColor="#000000"/>
+                    android:textSize="16sp" android:textStyle="bold" android:textColor="#000000"/>
             <EditText
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:ems="10"
-                    android:id="@+id/editTextPhone" android:layout_weight="1" android:hint="Area Code"/>
+                    android:id="@+id/txtAreaCode" android:layout_weight="1" android:hint="Area Code"
+                    android:textSize="16sp" tools:ignore="TouchTargetSizeCheck"/>
             <EditText
                     android:layout_width="204dp"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:ems="10"
-                    android:id="@+id/editTextPhone2" android:layout_weight="1" android:hint="Phone number"
-            />
+                    android:id="@+id/txtPhoneNumber" android:layout_weight="1" android:hint="Phone number"
+                    android:textSize="16sp" tools:ignore="TouchTargetSizeCheck"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="63dp">
+                android:layout_height="56dp">
             <TextView
                     android:text="Applying for position"
-                    android:layout_width="307dp"
+                    android:layout_width="315dp"
                     android:layout_height="wrap_content" android:id="@+id/textView10" android:layout_weight="1"
-                    android:textSize="18sp" android:textStyle="bold" android:textColor="#000000"
+                    android:textSize="16sp" android:textStyle="bold" android:textColor="#000000"
                     android:textAlignment="textStart"/>
             <EditText
                     android:layout_width="435dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/editTextTextPersonName11" android:layout_weight="1" android:hint="Position"/>
+                    android:id="@+id/txtPosition" android:layout_weight="1" android:hint="Position"
+                    android:textSize="16sp" android:minHeight="43dp" tools:ignore="TouchTargetSizeCheck"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
             <TextView
                     android:text="Start Date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/textView11" android:layout_weight="1"
-                    android:textSize="18sp" android:textColor="#000000" android:textStyle="bold"
+                    android:textSize="16sp" android:textColor="#000000" android:textStyle="bold"
                     android:textAlignment="textStart"/>
             <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="197dp"
                     android:layout_height="wrap_content"
                     android:inputType="date"
                     android:ems="10"
-                    android:id="@+id/editTextDate" android:layout_weight="1" android:hint="Date"/>
+                    android:id="@+id/txtDate" android:layout_weight="1" android:hint="Date"
+                    android:textSize="16sp" android:minHeight="43dp" tools:ignore="TouchTargetSizeCheck"/>
         </LinearLayout>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="42dp"/>
+        <Button
+                android:text="Apply Now"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/btnApply"
+                style="@style/Widget.AppCompat.Button" app:cornerRadius="15dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:textStyle="bold"
+                android:textSize="16sp" android:textAlignment="center" android:textAllCaps="false"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
