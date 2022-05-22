@@ -20,10 +20,13 @@ class RecyclerView_Adapter2(private var items: ArrayList<JobForm>): RecyclerView
 
     lateinit var mcontext: Context
 
+
+
     class JobFormHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     init {
         this.itemsList = items
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -44,13 +47,16 @@ class RecyclerView_Adapter2(private var items: ArrayList<JobForm>): RecyclerView
         holder.itemView.findViewById<TextView>(R.id.tvPosition)?.text = item?.position
 
         holder.itemView.setOnClickListener {
-           // val intent = Intent(mcontext, MainActivity::class.java)
-           // intent.putExtra("passselectedcountry", itemsList?.get(position))
-          //  mcontext.startActivity(intent)
+            val o = Intent(mcontext, ConsultarJobApplication::class.java)
+            o.putExtra("poss", itemsList!!.get(position))
+            mcontext.startActivity(o)
             Log.d("Selected:", itemsList?.get(position)?.first_name.toString())
+
+
 
         }
     }
+
 
 
     override fun getFilter(): Filter {
@@ -81,5 +87,7 @@ class RecyclerView_Adapter2(private var items: ArrayList<JobForm>): RecyclerView
 
         }
     }
+
+
 }
 

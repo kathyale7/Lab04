@@ -36,10 +36,6 @@
                     android:textColor="#000000" android:textSize="14sp" android:textAlignment="viewStart"
                     android:editable="false" android:duplicateParentState="false"/>
         </LinearLayout>
-        <Button
-                android:text="Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/button"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
@@ -235,6 +231,6 @@
                 android:layout_height="38dp" android:id="@+id/btnreturn"
                 style="@style/Widget.AppCompat.Button" android:textSize="15sp" android:textAllCaps="false"
                 app:icon="@android:drawable/ic_menu_revert" app:cornerRadius="15dp" android:layout_gravity="center"
-                app:iconPadding="1dp" android:textAlignment="viewStart" tools:ignore="SpeakableTextPresentCheck"/>
+                app:iconPadding="1dp"  tools:ignore="SpeakableTextPresentCheck"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

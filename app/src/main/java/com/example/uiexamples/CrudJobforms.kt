@@ -61,10 +61,12 @@ class CrudJobforms : AppCompatActivity() {
 
         getListOfForms()
 
+
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                 val fromPosition: Int = viewHolder.adapterPosition
                 val toPosition: Int = target.adapterPosition
+
 
                 Collections.swap(jobforms.getApplications(), fromPosition, toPosition)
 
@@ -72,6 +74,12 @@ class CrudJobforms : AppCompatActivity() {
 
                 return false
             }
+
+
+
+
+
+
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
@@ -202,6 +210,8 @@ class CrudJobforms : AppCompatActivity() {
         adaptador2 = RecyclerView_Adapter2(nForms)
         lista2.adapter = adaptador2
     }
+
+
 
 
 }
