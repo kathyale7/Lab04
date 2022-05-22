@@ -28,8 +28,11 @@
             android:layout_height="wrap_content" android:layout_weight="1"/>
     <TextView
             android:text="TextView"
-            android:layout_width="85dp"
+            android:layout_width="88dp"
             android:layout_height="wrap_content" android:id="@+id/tvPosition" android:layout_weight="1"
             android:layout_gravity="center"/>
+    <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_weight="1"/>
 
 </LinearLayout>

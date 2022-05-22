@@ -11,7 +11,7 @@ class JobForm : Serializable {
     var street_address2: String = ""
     var city: String = ""
     var state: String = ""
-    var zip_code:Int = 0
+    var zip_code:String = ""
     var country: String = ""
     var email: String = ""
     var area_code:Int = 0
@@ -21,7 +21,7 @@ class JobForm : Serializable {
 
     internal constructor(first_name:String, last_name:String, street_address:String,
                          street_address2:String, city:String, state:String,
-                         zip_code:Int, country:String, email:String, area_code:Int,
+                         zip_code:String, country:String, email:String, area_code:Int,
                          phone_num:Int, position:String, start_date:String){
         this.first_name = first_name;
         this.last_name = last_name;

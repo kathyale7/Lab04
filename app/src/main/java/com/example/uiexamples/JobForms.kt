@@ -9,43 +9,43 @@ class JobForms private constructor() {
 
     init{
         addApplication(JobForm("Maria", "Solis", "2461 Forest Avenue",
-            " ", "New York", "New York", 10011, "United States",
+            " ", "New York", "New York", "10011", "United States",
             "maria.solis@gmail.com", 917, 8863046, "Product Manager",
             "03-07-2022"))
         addApplication(JobForm("Steven", "Sullivan", "9377 Marin Way",
-            " ", "Gulf Shores", "Alabama", 36542, "United States",
+            " ", "Gulf Shores", "Alabama", "36542", "United States",
             "steven.sullivan@yahoo.com", 251, 2000015, "Full Stack Developer",
             "04-03-2022"))
         addApplication(JobForm("Carlos", "Smith", "3014 277th Ave SE",
-            " ", "Fall City", "Washington", 98024, "United States",
+            " ", "Fall City", "Washington", "98024", "United States",
             "carlos.smith@hotmail.com", 970, 2234887, "Sr. Recruiter",
             "01-06-2022"))
         addApplication(JobForm("Sandra", "Lopez", "671 W Lexington Ave",
-            " ", "Elkhart", "Indiana", 46514, "United States",
+            " ", "Elkhart", "Indiana", "46514", "United States",
             "sandra.lopez@gmail.com", 574, 5223050, "Sales Manager",
             "01-01-2022"))
         addApplication(JobForm("Robert", "Brown", "1314 Meadowbrook Dr",
-            " ", "Mason City", "Iowa", 50401, "United States",
+            " ", "Mason City", "Iowa", "50401", "United States",
             "robertbrown@live.com", 641, 4244769, "Executive Assistant",
             "08-01-2022"))
         addApplication(JobForm("Liam", "Jules", "123 Thompson Creek Rd",
-            " ", "Honaker", "Honaker", 24260, "United States",
+            " ", "Honaker", "Honaker", "24260", "United States",
             "liam1989@yahoo.com", 276, 8736307, "Social Media Manager",
             "05-07-2022"))
         addApplication(JobForm("Eliza", "Hamilton", "6713 W Ns",
-            " ", "Kokomo", "Indiana", 46901, "United States",
+            " ", "Kokomo", "Indiana", "46901", "United States",
             "hamilton1706@hotmail.com", 765, 4523970, "First Line Manager",
             "09-08-2021"))
         addApplication(JobForm("Bryan", "Hadid", "18223 Scenic 98 Hwy",
-            " ", "Fairhope", "Alabama", 36532, "United States",
+            " ", "Fairhope", "Alabama", "36532", "United States",
             "bryan0107@live.com", 251, 2104635, "Security Manager",
             "04-09-2022"))
         addApplication(JobForm("Emma", "Stone", "6715 Regents Park Dr",
-            " ", "Zionsville", "Indiana", 46077, "United States",
+            " ", "Zionsville", "Indiana", "46077", "United States",
             "emmastone@gmail.com", 317, 7696410, "Customer Service Agent",
             "04-04-2022"))
         addApplication(JobForm("Valery", "Wong", "3014 277th Ave SE",
-            " ", "Fall City", "Washington", 98024, "United States",
+            " ", "Fall City", "Washington", "98024", "United States",
             "valerywong@yahoo.com", 970, 2234887, "Data Analyst",
             "04-02-2021"))
 

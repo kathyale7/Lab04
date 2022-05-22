@@ -9,7 +9,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.UIExamples">
-
+        <activity
+                android:name=".ConsultarJobApplication"
+                android:exported="true"/>
+        <activity
+                android:name=".InsertarJobApplication"
+                android:exported="true"/>
+        <activity
+                android:name=".ModificarJobApplication"
+                android:exported="true"/>
         <activity
                 android:name=".CrudJobforms"
                 android:exported="true"/>

@@ -1,5 +1,6 @@
 package com.example.uiexamples
 
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -93,7 +94,7 @@ class CrudJobforms : AppCompatActivity() {
                     jobforms.deleteApplication(position)
                     lista2.adapter?.notifyItemRemoved(position)
 
-                    Snackbar.make(lista2, JobForm.first_name + " se eliminaría...", Snackbar.LENGTH_LONG).setAction("Undo") {
+                    Snackbar.make(lista2, JobForm.first_name + " "+ JobForm.last_name +" fue eliminado/a.", Snackbar.LENGTH_LONG).setAction("Undo") {
                         jobforms.getApplications().add(position, JobForm)
                         lista2.adapter?.notifyItemInserted(position)
                     }.show()
@@ -118,12 +119,16 @@ class CrudJobforms : AppCompatActivity() {
                     archived.add(JobForm)
 
 
+                    val i = Intent(this@CrudJobforms, ModificarJobApplication::class.java)
 
-                    //// i.putExtra("puser", personas.getPersonas()[position].user)
-                    //i.putExtra("ppass", personas.getPersonas()[position].password)
-                    //i.putExtra("pname", personas.getPersonas()[position].nombre)
-                    //i.putExtra("poss", position)
-                    //startActivity(i)
+                    i.putExtra("pfirst_name", jobforms.getApplications()[position].first_name)
+                    i.putExtra("plast_name",jobforms.getApplications()[position].last_name)
+                    i.putExtra("pemail",jobforms.getApplications()[position].email)
+                    i.putExtra("pposition",jobforms.getApplications()[position].position)
+                    i.putExtra("pstart_date",jobforms.getApplications()[position].start_date)
+                    i.putExtra("poss", position)
+
+                    startActivity(i)
 
 
 
