@@ -175,16 +175,17 @@ class CrudJobforms : AppCompatActivity() {
             ///persona = Persona("luc", "123", "Lucia", R.drawable.foto07)
             ///personas.addPersona(persona)
             ///archived.add(persona)
-            ///lista.adapter?.notifyDataSetChanged()
-            ///adaptador = RecyclerView_Adapter(personas.getPersonas())
-            ///lista.adapter = adaptador
+
 
             //val bundle = Bundle()
 
-            //val i = Intent(this, InsertarExample::class.java)
+            val i = Intent(this, InsertarJobApplication::class.java)
+            lista2.adapter?.notifyDataSetChanged()
+            adaptador2 = RecyclerView_Adapter2(jobforms.getApplications())
+            lista2.adapter = adaptador2
 
 //
-            //startActivity(i)
+            startActivity(i)
             // your code to validate the user_name and password combination
             // and verify the same
 
@@ -202,9 +203,5 @@ class CrudJobforms : AppCompatActivity() {
         lista2.adapter = adaptador2
     }
 
-    //private fun alert(context: Context, text: String) {
-    //    val intent = Intent(context, ModificarExample::class.java)
-    //    intent.putExtra("text", text)
-    //   context.startActivity(intent)
-    // }
+
 }
