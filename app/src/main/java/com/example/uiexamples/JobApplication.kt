@@ -30,7 +30,7 @@ class JobApplication : AppCompatActivity() {
         var newposition = findViewById(R.id.txtPosition) as EditText
         var newstart_date = findViewById(R.id.txtDate) as EditText
         var btnApply = findViewById(R.id.btnApply) as Button
-        var btnReturn = findViewById(R.id.btnreturn) as Button
+
 
         btnApply.setOnClickListener {
             val firstname = newfirst_name.text;
@@ -65,9 +65,5 @@ class JobApplication : AppCompatActivity() {
 
             startActivity(i)
     }
-        btnReturn.setOnClickListener {
-            val i = Intent(this, LoginExample::class.java)
 
-            startActivity(i)
-        }
 }}

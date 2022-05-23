@@ -24,7 +24,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 
 
-class MenuExample : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
+class MenuExampleAdministrator : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var homeFragment: HomeFragment
@@ -33,7 +33,7 @@ class MenuExample : AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_example)
+        setContentView(R.layout.activity_menu_example_administrator)
 
         val bundle = intent.extras
         val msg = bundle!!.getString("msg")
@@ -110,10 +110,12 @@ class MenuExample : AppCompatActivity(), NavigationView.OnNavigationItemSelected
                 val i = Intent(this, CrudPersonas::class.java)
                 startActivity(i)
             }
-            R.id.nav_jobapplication -> {
-                val i = Intent(this, JobApplication::class.java)
+
+            R.id.nav_listapplication -> {
+                val i = Intent(this, CrudJobforms::class.java)
                 startActivity(i)
             }
+
             R.id.nav_listapplication -> {
                 val i = Intent(this, CrudJobforms::class.java)
                 startActivity(i)

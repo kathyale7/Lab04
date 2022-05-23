@@ -7,20 +7,20 @@ class Personas private constructor() {
     private var personas: ArrayList<Persona> = ArrayList<Persona>()
 
     init{
-        addPersona(Persona("mar", "123","Marcos", R.drawable.foto01))
-        addPersona(Persona("jul", "123", "Julia", R.drawable.foto02))
-        addPersona(Persona("cam", "123", "Camilo", R.drawable.foto03))
-        addPersona(Persona("lui", "123", "Luis", R.drawable.foto04))
-        addPersona(Persona("cel", "123", "Celia", R.drawable.foto05))
-        addPersona(Persona("jes", "123", "Jessica", R.drawable.foto06))
-        addPersona(Persona("reb", "123", "Rebeca", R.drawable.foto07))
-        addPersona(Persona("ari", "123","Ariana", R.drawable.foto01))
-        addPersona(Persona("cri", "123", "Cristian", R.drawable.foto02))
-        addPersona(Persona("nic", "123", "Nicole", R.drawable.foto03))
-        addPersona(Persona("mon", "123", "Monica", R.drawable.foto04))
-        addPersona(Persona("dan", "123", "Daniel", R.drawable.foto05))
-        addPersona(Persona("sar", "123", "Sara", R.drawable.foto06))
-        addPersona(Persona("san", "123", "Santiago", R.drawable.foto07))
+        addPersona(Persona("mar", "123","Marcos", R.drawable.foto01, "admin"))
+        addPersona(Persona("jul", "123", "Julia", R.drawable.foto02, "standard"))
+        addPersona(Persona("cam", "123", "Camilo", R.drawable.foto03, "standard"))
+        addPersona(Persona("lui", "123", "Luis", R.drawable.foto04, "standard"))
+        addPersona(Persona("cel", "123", "Celia", R.drawable.foto05, "standard"))
+        addPersona(Persona("jes", "123", "Jessica", R.drawable.foto06, "standard"))
+        addPersona(Persona("reb", "123", "Rebeca", R.drawable.foto07, "standard"))
+        addPersona(Persona("ari", "123","Ariana", R.drawable.foto01, "standard"))
+        addPersona(Persona("cri", "123", "Cristian", R.drawable.foto02, "standard"))
+        addPersona(Persona("nic", "123", "Nicole", R.drawable.foto03,"standard"))
+        addPersona(Persona("mon", "123", "Monica", R.drawable.foto04, "standard"))
+        addPersona(Persona("dan", "123", "Daniel", R.drawable.foto05, "standard"))
+        addPersona(Persona("sar", "123", "Sara", R.drawable.foto06, "standard"))
+        addPersona(Persona("san", "123", "Santiago", R.drawable.foto07, "standard"))
     }
 
     private object HOLDER {
@@ -67,6 +67,16 @@ class Personas private constructor() {
         }
         return null
     }
+
+    fun loginTipo(user: String?, password: String?, tipoUser: String?): Boolean{
+        for(p: Persona in personas!!){
+            if(p.user.equals(user) && p.password.equals(password) && p.tipoUser.equals(tipoUser)){
+                return true
+            }
+        }
+        return false
+    }
+
 
     fun deletePerson(position: Int){
         personas!!.removeAt(position)

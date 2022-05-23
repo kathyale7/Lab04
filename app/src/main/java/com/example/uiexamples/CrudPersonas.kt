@@ -86,7 +86,7 @@ class CrudPersonas : AppCompatActivity() {
                         position = viewHolder.adapterPosition
 
                         if(direction == ItemTouchHelper.LEFT){
-                            persona = Persona(personas.getPersonas()[position].user, personas.getPersonas()[position].password, personas.getPersonas()[position].nombre, personas.getPersonas()[position].foto)
+                            persona = Persona(personas.getPersonas()[position].user, personas.getPersonas()[position].password, personas.getPersonas()[position].nombre, personas.getPersonas()[position].foto, personas.getPersonas()[position].nombre)
                             personas.deletePerson(position)
                             lista.adapter?.notifyItemRemoved(position)
 
@@ -99,7 +99,7 @@ class CrudPersonas : AppCompatActivity() {
                         }else{
 
                             position = viewHolder.adapterPosition
-                            persona = Persona(personas.getPersonas()[position].user, personas.getPersonas()[position].password, personas.getPersonas()[position].nombre, personas.getPersonas()[position].foto)
+                            persona = Persona(personas.getPersonas()[position].user, personas.getPersonas()[position].password, personas.getPersonas()[position].nombre, personas.getPersonas()[position].foto, personas.getPersonas()[position].nombre)
                             archived.add(persona)
 
 
@@ -153,7 +153,7 @@ class CrudPersonas : AppCompatActivity() {
             Snackbar.make(view, "Se inserto a la persona correctamente", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
 
-            persona = Persona("luc", "123", "Lucia", R.drawable.foto07)
+            persona = Persona("luc", "123", "Lucia", R.drawable.foto07,"standard")
             personas.addPersona(persona)
             archived.add(persona)
             lista.adapter?.notifyDataSetChanged()

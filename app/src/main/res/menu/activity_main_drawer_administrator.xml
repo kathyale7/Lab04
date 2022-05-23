@@ -25,13 +25,14 @@
     <group
             android:id="@+id/grp_jobs">
         <item
-                android:id="@+id/nav_jobapplication"
-                android:icon="@drawable/portfolio"
-                android:title="Job Application"/>
-        <item
                 android:id="@+id/nav_listapplication"
                 android:icon="@drawable/list"
                 android:title="List Applications"/>
+    </group>
+    <group
+    >
+        <item android:title="Change password" android:icon="@android:drawable/ic_menu_manage"
+              android:id="@+id/nav_pass"/>
     </group>
     <group
     >

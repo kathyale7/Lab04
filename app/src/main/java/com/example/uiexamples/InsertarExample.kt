@@ -29,7 +29,7 @@ class InsertarExample : AppCompatActivity() {
             //Toast.makeText(this@LoginExample, user_name, Toast.LENGTH_LONG).show()
             //if(username.toString()!="") {
                 val bundle = Bundle()
-                persona = Persona(username.toString(), password2.toString(), name.toString(), R.drawable.foto01)
+                persona = Persona(username.toString(), password2.toString(), name.toString(), R.drawable.foto01, "standard")
                 personas.addPersona(persona)
             val i = Intent(this, LoginExample::class.java)
 

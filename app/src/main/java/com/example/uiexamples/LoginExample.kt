@@ -35,25 +35,47 @@ class LoginExample : AppCompatActivity() {
             val user_name = et_user_name.text;
             val password = et_password.text;
             //Toast.makeText(this@LoginExample, user_name, Toast.LENGTH_LONG).show()
-            if(personas.login(user_name.toString(), password.toString())){
+            if(personas.loginTipo(user_name.toString(), password.toString(),"admin")){
                 val bundle = Bundle()
                 val Login = personas.loginP(user_name.toString(), password.toString())
-                val i = Intent(this, MenuExample::class.java)
-                i.putExtra("msg", "Mensaje de Login al Menú")
-                i.putExtra("Login", Login)
+                val persona = personas.getPersona(user_name.toString())
+                        val i = Intent(this, MenuExampleAdministrator::class.java)
+                        i.putExtra("msg", "Mensaje de Login al Menú")
+                        i.putExtra("Login", Login)
 //            i.putExtra("passw", password.toString())
-                // start your next activity
-                startActivity(i)
-                // your code to validate the user_name and password combination
-                // and verify the same
-            }else{
-                Toast.makeText(this, "El usuario no se encuentra registrado", Toast.LENGTH_SHORT).show()
+                        // start your next activity
+                        finish()
+                        startActivity(i)
+                        // your code to validate the user_name and password combination
+                        // and verify the same
+
+
+
+            }else {
+                if (personas.loginTipo(user_name.toString(), password.toString(), "standard")) {
+                    val bundle = Bundle()
+                    val Login = personas.loginP(user_name.toString(), password.toString())
+                    val persona = personas.getPersona(user_name.toString())
+                    val i = Intent(this, MenuExampleStandard::class.java)
+                    i.putExtra("msg", "Mensaje de Login al Menú")
+                    i.putExtra("Login", Login)
+//            i.putExtra("passw", password.toString())
+                    // start your next activity
+                    finish()
+                    startActivity(i)
+                    // your code to validate the user_name and password combination
+                    // and verify the same
+
+
+                } else {
+                    Toast.makeText(this, "El usuario no se encuentra registrado", Toast.LENGTH_SHORT).show()
+                }
             }
 
         }
         btn_register1.setOnClickListener {
             val i = Intent(this, InsertarExample::class.java)
-
+            finish()
             startActivity(i)
         }
 

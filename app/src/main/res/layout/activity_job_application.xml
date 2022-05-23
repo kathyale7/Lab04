@@ -226,11 +226,5 @@
                 style="@style/Widget.AppCompat.Button" app:cornerRadius="15dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:textStyle="bold"
                 android:textSize="16sp" android:textAlignment="center" android:textAllCaps="false"/>
-        <Button
-                android:layout_width="50dp"
-                android:layout_height="38dp" android:id="@+id/btnreturn"
-                style="@style/Widget.AppCompat.Button" android:textSize="15sp" android:textAllCaps="false"
-                app:icon="@android:drawable/ic_menu_revert" app:cornerRadius="15dp" android:layout_gravity="center"
-                app:iconPadding="1dp"  tools:ignore="SpeakableTextPresentCheck"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

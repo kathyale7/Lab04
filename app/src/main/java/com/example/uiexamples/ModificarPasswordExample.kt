@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 
-class ModificarExample : AppCompatActivity() {
+class ModificarPasswordExample : AppCompatActivity() {
     var personas: Personas = Personas.instance
 
     override fun onCreate(savedInstanceState: Bundle?) {
