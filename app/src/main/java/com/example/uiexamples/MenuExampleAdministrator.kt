@@ -116,7 +116,11 @@ class MenuExampleAdministrator : AppCompatActivity(), NavigationView.OnNavigatio
                 val i = Intent(this, CrudJobforms::class.java)
                 startActivity(i)
             }
-
+            R.id.nav_pass -> {
+                val i = Intent(this, ChangePassword::class.java)
+                finish()
+                startActivity(i)
+            }
             R.id.nav_logout -> {
                 val i = Intent(this, LoginExample::class.java)
                 finish()

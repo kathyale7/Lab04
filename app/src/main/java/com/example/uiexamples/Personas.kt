@@ -88,4 +88,13 @@ class Personas private constructor() {
         aux.nombre = p.nombre
         aux.user = p.user
     }
+    fun editPassword(user: String?, password: String?, newPassword: String): Boolean {
+        for (p: Persona in personas!!) {
+            if (p.user.equals(user) && p.password.equals(password)) {
+                p.password = newPassword
+                return true;
+            }
+        }
+        return false;
+    }
 }

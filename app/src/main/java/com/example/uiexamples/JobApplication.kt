@@ -68,7 +68,7 @@ class JobApplication : AppCompatActivity() {
     }
         btnreturn.setOnClickListener {
             val i = Intent(this, LoginExample::class.java)
-
+            finish()
             startActivity(i)
         }
 

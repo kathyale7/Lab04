@@ -66,6 +66,7 @@ class ConsultarJobApplication : AppCompatActivity() {
 
 
             val o = Intent(this, CrudJobforms::class.java)
+            finish()
             startActivity(o)
 
 
