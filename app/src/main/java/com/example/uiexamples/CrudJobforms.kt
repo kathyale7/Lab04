@@ -19,7 +19,7 @@ import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CrudJobforms : AppCompatActivity() {
+class CrudJobforms : AppCompatActivity(), RecyclerView_Adapter2.onJobFormClickListener {
 
     var jobforms: JobForms = JobForms.instance
 
@@ -47,7 +47,14 @@ class CrudJobforms : AppCompatActivity() {
         lista2 = findViewById(R.id.lista2)
         lista2.layoutManager = LinearLayoutManager(lista2.context)
         lista2.setHasFixedSize(true)
+        adaptador2 = RecyclerView_Adapter2(jobforms.getApplications(), this)
 
+        /*adaptador2.onItemClick = {
+            val o = Intent(this, ConsultarJobApplication::class.java)
+            o.putExtra("poss", it)
+            startActivity(o)
+
+        }*/
         findViewById<SearchView>(R.id.person_search2).setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -106,7 +113,7 @@ class CrudJobforms : AppCompatActivity() {
                         jobforms.getApplications().add(position, JobForm)
                         lista2.adapter?.notifyItemInserted(position)
                     }.show()
-                    adaptador2 = RecyclerView_Adapter2(jobforms.getApplications())
+                    adaptador2 = RecyclerView_Adapter2(jobforms.getApplications(), this@CrudJobforms)
                     lista2.adapter = adaptador2
                 }else{
 
@@ -146,7 +153,7 @@ class CrudJobforms : AppCompatActivity() {
                         jobforms.getApplications().add(position, JobForm)
                         lista2.adapter?.notifyItemInserted(position)
                     }.show()
-                    adaptador2 = RecyclerView_Adapter2(jobforms.getApplications())
+                    adaptador2 = RecyclerView_Adapter2(jobforms.getApplications(), this@CrudJobforms)
                     lista2.adapter = adaptador2
 
                     //getListOfPersons()
@@ -189,7 +196,7 @@ class CrudJobforms : AppCompatActivity() {
 
             val i = Intent(this, InsertarJobApplication::class.java)
             lista2.adapter?.notifyDataSetChanged()
-            adaptador2 = RecyclerView_Adapter2(jobforms.getApplications())
+            adaptador2 = RecyclerView_Adapter2(jobforms.getApplications(), this@CrudJobforms)
             lista2.adapter = adaptador2
 
 //
@@ -207,11 +214,17 @@ class CrudJobforms : AppCompatActivity() {
         for (p in jobforms.getApplications()) {
             nForms.add(p)
         }
-        adaptador2 = RecyclerView_Adapter2(nForms)
+        adaptador2 = RecyclerView_Adapter2(nForms, this@CrudJobforms)
         lista2.adapter = adaptador2
     }
 
+    override fun onItemClick(form: JobForm) {
+        val i = Intent(this@CrudJobforms, ConsultarJobApplication::class.java)
 
+        i.putExtra("poss", form)
+
+        startActivity(i)
+    }
 
 
 }

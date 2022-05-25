@@ -3,25 +3,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-
-        <item
-            android:id="@+id/nav_personas"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Personas" />
-    </group>
+    <group android:checkableBehavior="single"/>
     <group
             android:id="@+id/grp_jobs">
         <item
@@ -30,7 +12,7 @@
                 android:title="Job Application"/>
     </group>
     <group
-    >
+            android:id="@+id/change_pass">
         <item android:title="Change password" android:icon="@android:drawable/ic_menu_manage"
               android:id="@+id/nav_pass"/>
     </group>

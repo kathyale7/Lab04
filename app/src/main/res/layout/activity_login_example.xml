@@ -14,8 +14,8 @@
             android:padding="25dp"
             android:orientation="vertical">
         <ImageView
-                android:layout_width="162dp"
-                android:layout_height="152dp" app:srcCompat="@drawable/profile" android:id="@+id/profile"/>
+                android:layout_width="125dp"
+                android:layout_height="98dp" app:srcCompat="@drawable/profile" android:id="@+id/profile"/>
         <Space
                 android:layout_width="match_parent"
                 android:layout_height="53dp"/>
@@ -67,11 +67,11 @@
                     app:cornerRadius="15dp"/>
         </LinearLayout>
         <Button
-                android:text="No account? Register"
-                android:layout_width="324dp"
+                android:text="Register"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/btn_newperson"
                 android:background="@drawable/rounded_corner" app:cornerRadius="15dp"
-                android:textSize="16sp" android:fontFamily="sans-serif-thin" android:textStyle="bold"
+                android:textSize="14sp" android:fontFamily="sans-serif-thin" android:textStyle="bold"
                 android:textAllCaps="false"/>
     </LinearLayout>
 

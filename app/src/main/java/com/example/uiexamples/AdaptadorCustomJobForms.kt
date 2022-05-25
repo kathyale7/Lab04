@@ -14,11 +14,17 @@ import com.example.uiexamples.ui.Login
 import java.util.*
 import kotlin.collections.ArrayList
 
-class RecyclerView_Adapter2(private var items: ArrayList<JobForm>): RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
+class RecyclerView_Adapter2(private var items: ArrayList<JobForm>, private val itemClickListener:onJobFormClickListener):
+    RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
     var itemsList: ArrayList<JobForm>? = null
 
     lateinit var mcontext: Context
+
+
+    interface onJobFormClickListener {
+    fun onItemClick(form : JobForm)
+}
 
 
 
@@ -47,9 +53,8 @@ class RecyclerView_Adapter2(private var items: ArrayList<JobForm>): RecyclerView
         holder.itemView.findViewById<TextView>(R.id.tvPosition)?.text = item?.position
 
         holder.itemView.setOnClickListener {
-            val o = Intent(mcontext, ConsultarJobApplication::class.java)
-            o.putExtra("poss", itemsList!!.get(position))
-            mcontext.startActivity(o)
+            itemClickListener.onItemClick(item!!)
+
             Log.d("Selected:", itemsList?.get(position)?.first_name.toString())
 
 

@@ -106,10 +106,6 @@ class MenuExampleAdministrator : AppCompatActivity(), NavigationView.OnNavigatio
                     .addToBackStack(null)
                     .commit()
             }
-            R.id.nav_personas -> {
-                val i = Intent(this, CrudPersonas::class.java)
-                startActivity(i)
-            }
 
             R.id.nav_listapplication -> {
                 val i = Intent(this, CrudJobforms::class.java)
