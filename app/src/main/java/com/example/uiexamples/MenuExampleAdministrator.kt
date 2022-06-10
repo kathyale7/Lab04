@@ -15,7 +15,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.uiexamples.ui.Login
 import com.example.uiexamples.ui.gallery.GalleryFragment
 import com.example.uiexamples.ui.home.HomeFragment
 import com.example.uiexamples.ui.slideshow.SlideshowFragment
@@ -107,16 +106,16 @@ class MenuExampleAdministrator : AppCompatActivity(), NavigationView.OnNavigatio
                     .commit()
             }
 
-            R.id.nav_listapplication -> {
+            R.id.nav_cursos -> {
                 val i = Intent(this, CrudJobforms::class.java)
                 startActivity(i)
             }
 
-            R.id.nav_listapplication -> {
+            R.id.nav_cursos -> {
                 val i = Intent(this, CrudJobforms::class.java)
                 startActivity(i)
             }
-            R.id.nav_pass -> {
+            R.id.nav_oferta -> {
                 val i = Intent(this, ChangePassword::class.java)
                 finish()
                 startActivity(i)

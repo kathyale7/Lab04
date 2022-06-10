@@ -11,12 +11,13 @@
                 android:icon="@drawable/portfolio"
                 android:title="Job Application"/>
         <item
-                android:id="@+id/nav_listapplication"
+                android:id="@+id/nav_cursos"
                 android:icon="@drawable/list"
                 android:title="List Applications"/>
     </group>
     <group
     >
-        <item android:title="Logout" android:icon="@android:drawable/ic_menu_revert" android:id="@+id/nav_logout"/>
+        <item android:title="Cerrar Sesión" android:icon="@drawable/ic_logout_box_line"
+              android:id="@+id/nav_logout"/>
     </group>
 </menu>

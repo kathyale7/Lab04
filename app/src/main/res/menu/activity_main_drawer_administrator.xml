@@ -7,17 +7,39 @@
     <group
             android:id="@+id/grp_jobs">
         <item
-                android:id="@+id/nav_listapplication"
-                android:icon="@drawable/list"
-                android:title="List Applications"/>
+                android:id="@+id/nav_cursos"
+                android:icon="@drawable/ic_i_training_class"
+                android:title="Cursos"/>
+        <item
+                android:id="@+id/nav_carrera"
+                android:icon="@drawable/ic_college"
+                android:title="Carreras"/>
+        <item
+                android:id="@+id/nav_profesores"
+                android:icon="@drawable/ic_chalkboard_teacher"
+                android:title="Profesores"/>
+        <item
+                android:id="@+id/nav_alumnos"
+                android:icon="@drawable/ic_student"
+                android:title="Alumnos"/>
+        <item
+                android:id="@+id/nav_ciclos"
+                android:icon="@drawable/ic_cycle"
+                android:title="Ciclos"/>
+
     </group>
     <group
             android:id="@+id/change_password">
-        <item android:title="Change password" android:icon="@android:drawable/ic_menu_manage"
-              android:id="@+id/nav_pass"/>
+        <item android:title="Oferta Academica" android:icon="@drawable/ic_catalog"
+              android:id="@+id/nav_oferta"/>
+        <item android:title="Matricula" android:icon="@drawable/ic_form_new_28_regular"
+              android:id="@+id/nav_matricula"/>
+        <item android:title="Historial" android:icon="@drawable/ic_history_24_filled"
+              android:id="@+id/nav_historial"/>
     </group>
     <group
     >
-        <item android:title="Logout" android:icon="@android:drawable/ic_menu_revert" android:id="@+id/nav_logout"/>
+        <item android:title="Cerrar Sesión" android:icon="@drawable/ic_logout_box_line"
+              android:id="@+id/nav_logout"/>
     </group>
 </menu>

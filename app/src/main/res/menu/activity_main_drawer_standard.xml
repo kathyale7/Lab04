@@ -8,16 +8,16 @@
             android:id="@+id/grp_jobs">
         <item
                 android:id="@+id/nav_jobapplication"
-                android:icon="@drawable/portfolio"
-                android:title="Job Application"/>
+                android:icon="@drawable/ic_score_sheets"
+                android:title="Notas"/>
     </group>
     <group
             android:id="@+id/change_pass">
         <item android:title="Change password" android:icon="@android:drawable/ic_menu_manage"
-              android:id="@+id/nav_pass"/>
+              android:id="@+id/nav_oferta"/>
     </group>
     <group
     >
-        <item android:title="Logout" android:icon="@android:drawable/ic_menu_revert" android:id="@+id/nav_logout"/>
+        <item android:title="Cerrar Seisón" android:icon="@drawable/ic_logout_box_line" android:id="@+id/nav_logout"/>
     </group>
 </menu>

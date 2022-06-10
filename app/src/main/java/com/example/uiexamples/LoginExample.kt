@@ -20,15 +20,11 @@ class LoginExample : AppCompatActivity() {
 
         var et_user_name = findViewById(R.id.et_user_name) as EditText
         var et_password = findViewById(R.id.et_password) as EditText
-        var btn_reset = findViewById(R.id.btn_reset) as Button
-        var btn_submit = findViewById(R.id.btn_submit) as Button
-        var btn_register1 = findViewById(R.id.btn_newperson) as Button
 
-        btn_reset.setOnClickListener {
-            // clearing user_name and password edit text views on reset button click
-            et_user_name.setText("")
-            et_password.setText("")
-        }
+        var btn_submit = findViewById(R.id.btn_submit) as Button
+
+
+
 
         // set on-click listener
         btn_submit.setOnClickListener {
@@ -73,11 +69,7 @@ class LoginExample : AppCompatActivity() {
             }
 
         }
-        btn_register1.setOnClickListener {
-            val i = Intent(this, InsertarExample::class.java)
-            finish()
-            startActivity(i)
-        }
+
 
     }
 }

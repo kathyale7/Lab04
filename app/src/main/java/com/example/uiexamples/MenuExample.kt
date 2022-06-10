@@ -15,7 +15,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.uiexamples.ui.Login
 import com.example.uiexamples.ui.gallery.GalleryFragment
 import com.example.uiexamples.ui.home.HomeFragment
 import com.example.uiexamples.ui.slideshow.SlideshowFragment
@@ -111,7 +110,7 @@ class MenuExample : AppCompatActivity(), NavigationView.OnNavigationItemSelected
                 val i = Intent(this, JobApplication::class.java)
                 startActivity(i)
             }
-            R.id.nav_listapplication -> {
+            R.id.nav_cursos -> {
                 val i = Intent(this, CrudJobforms::class.java)
                 startActivity(i)
             }
