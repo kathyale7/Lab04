@@ -43,7 +43,7 @@ class RecyclerView_Adapter(private var items: ArrayList<Persona>): RecyclerView.
         holder.itemView.findViewById<ImageView>(R.id.ivFoto).setImageResource(item?.foto!!)
 
         holder.itemView.setOnClickListener {
-           // val intent = Intent(mcontext, MainActivity::class.java)
+           // val intent = Intent(mcontext, Historial::class.java)
            // intent.putExtra("passselectedcountry", itemsList?.get(position))
           //  mcontext.startActivity(intent)
             Log.d("Selected:", itemsList?.get(position)?.nombre.toString())

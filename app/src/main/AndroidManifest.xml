@@ -10,6 +10,36 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.UIExamples">
         <activity
+                android:name=".SeguridadMatri"
+                android:exported="true"/>
+        <activity
+                android:name=".SeguridadAdmin"
+                android:exported="true"/>
+        <activity
+                android:name=".Seguridad"
+                android:exported="true"/>
+        <activity
+                android:name=".NotasPorCurso"
+                android:exported="true"/>
+        <activity
+                android:name=".Notas"
+                android:exported="true"/>
+        <activity
+                android:name=".Matricula"
+                android:exported="true"/>
+        <activity
+                android:name=".GruposDisponibles"
+                android:exported="true"/>
+        <activity
+                android:name=".CursosDisponibles"
+                android:exported="true"/>
+        <activity
+                android:name=".OfertaAcademica"
+                android:exported="true"/>
+        <activity
+                android:name=".Historial"
+                android:exported="true"/>
+        <activity
                 android:name=".ConsultarJobApplication"
                 android:exported="true"/>
         <activity
@@ -55,7 +85,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts"/>
     </application>
 
 </manifest>

@@ -111,20 +111,26 @@ class MenuExampleAdministrator : AppCompatActivity(), NavigationView.OnNavigatio
                 startActivity(i)
             }
 
-            R.id.nav_cursos -> {
-                val i = Intent(this, CrudJobforms::class.java)
+            R.id.nav_historial -> {
+                val i = Intent(this, Historial::class.java)
                 startActivity(i)
             }
-            R.id.nav_oferta -> {
-                val i = Intent(this, ChangePassword::class.java)
-                finish()
-                startActivity(i)
-            }
+
             R.id.nav_logout -> {
                 val i = Intent(this, LoginExample::class.java)
                 finish()
                 startActivity(i)
             }
+            R.id.nav_oferta -> {
+                val i = Intent(this, OfertaAcademica::class.java)
+                startActivity(i)
+            }
+
+            R.id.nav_matricula -> {
+                val i = Intent(this, Matricula::class.java)
+                startActivity(i)
+            }
+
         }
         return true
     }
