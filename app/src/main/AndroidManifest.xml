@@ -10,6 +10,33 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.UIExamples">
         <activity
+                android:name=".CrudCursos"
+                android:exported="true"/>
+        <activity
+                android:name=".CrudProfesores"
+                android:exported="true"/>
+        <activity
+                android:name=".CrudAlumnos"
+                android:exported="true"/>
+        <activity
+                android:name=".CrudCiclos"
+                android:exported="true"/>
+        <activity
+                android:name=".CrudCarreras"
+                android:exported="true"/>
+        <activity
+                android:name=".CrudCursosDeCarreras"
+                android:exported="true"/>
+        <activity
+                android:name=".CrudCursosDeCiclos"
+                android:exported="true"/>
+        <activity
+                android:name=".CrudCursosDeProfesores"
+                android:exported="true"/>
+        <activity
+                android:name=".CrudHistorialAlumno"
+                android:exported="true"/>
+        <activity
                 android:name=".SeguridadMatri"
                 android:exported="true"/>
         <activity

@@ -106,10 +106,7 @@ class MenuExampleAdministrator : AppCompatActivity(), NavigationView.OnNavigatio
                     .commit()
             }
 
-            R.id.nav_cursos -> {
-                val i = Intent(this, CrudJobforms::class.java)
-                startActivity(i)
-            }
+
 
             R.id.nav_historial -> {
                 val i = Intent(this, Historial::class.java)
@@ -128,6 +125,26 @@ class MenuExampleAdministrator : AppCompatActivity(), NavigationView.OnNavigatio
 
             R.id.nav_matricula -> {
                 val i = Intent(this, Matricula::class.java)
+                startActivity(i)
+            }
+            R.id.nav_cursos -> {
+                val i = Intent(this, CrudCursos::class.java)
+                startActivity(i)
+            }
+            R.id.nav_carrera -> {
+                val i = Intent(this, CrudCarreras::class.java)
+                startActivity(i)
+            }
+            R.id.nav_profesores -> {
+                val i = Intent(this, CrudProfesores::class.java)
+                startActivity(i)
+            }
+            R.id.nav_alumnos -> {
+                val i = Intent(this, CrudAlumnos::class.java)
+                startActivity(i)
+            }
+            R.id.nav_ciclos -> {
+                val i = Intent(this, CrudCiclos::class.java)
                 startActivity(i)
             }
 

@@ -32,9 +32,12 @@
                     app:layout_constraintHorizontal_bias="0.954"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@android:drawable/ic_input_add" tools:ignore="SpeakableTextPresentCheck"
-                    app:backgroundTintMode="add" android:background="@color/white"
-                    app:backgroundTint="@color/white" android:tint="@color/white" app:rippleColor="@color/white"/>
 
+                    app:backgroundTintMode="add"
+                    app:borderWidth="0dp"
+                    android:background="@color/white"
+                    app:backgroundTint="@color/black"
+                    app:tint="@android:color/white"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
