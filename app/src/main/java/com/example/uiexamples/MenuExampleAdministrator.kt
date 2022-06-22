@@ -35,12 +35,7 @@ class MenuExampleAdministrator : AppCompatActivity(), NavigationView.OnNavigatio
         setContentView(R.layout.activity_menu_example_administrator)
 
         val bundle = intent.extras
-        val msg = bundle!!.getString("msg")
-        val l =  bundle.getSerializable("Login") as Persona
 
-        if (msg != null) {
-            Toast.makeText(this, "$msg ${l.nombre} ${l.password}", Toast.LENGTH_SHORT).show()
-        }
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
