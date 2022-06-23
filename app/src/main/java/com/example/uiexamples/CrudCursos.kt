@@ -33,7 +33,7 @@ class CrudCursos : AppCompatActivity(), Cursos_Adapter.onCursoClickListener {
     lateinit var lista2: RecyclerView
     lateinit var adaptador:Cursos_Adapter
     lateinit var JobForm: JobForm
-    var archived = ArrayList<JobForm>()
+    var archived = ArrayList<curso>()
     var position: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,15 +41,17 @@ class CrudCursos : AppCompatActivity(), Cursos_Adapter.onCursoClickListener {
         setContentView(R.layout.activity_crud_cursos)
         val recyclerView = findViewById<RecyclerView>(R.id.lista_cursos)
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
-        val call = serviceGenerator.getCursos()
+        val call_cursos = serviceGenerator.getCursos()
 
-        call.enqueue(object : Callback<MutableList<curso>>{
+
+        call_cursos.enqueue(object : Callback<MutableList<curso>>{
             override fun onResponse(call: Call<MutableList<curso>>, response: Response<MutableList<curso>>) {
                 if (response.isSuccessful) {
                     recyclerView.apply {
                         layoutManager = LinearLayoutManager(this@CrudCursos)
                         adapter = Cursos_Adapter(response.body()!! as ArrayList<curso>, this@CrudCursos)
                         adaptador = adapter as Cursos_Adapter
+                         archived= response.body()!! as ArrayList<curso>
 
                     }
                     Log.e("success", response.body().toString())
@@ -75,6 +77,70 @@ class CrudCursos : AppCompatActivity(), Cursos_Adapter.onCursoClickListener {
                 return false
             }
         })
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                val fromPosition: Int = viewHolder.adapterPosition
+                val toPosition: Int = target.adapterPosition
+
+
+                Collections.swap(archived, fromPosition, toPosition)
+
+                recyclerView.adapter?.notifyItemMoved(fromPosition, toPosition)
+
+                return false
+            }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+            position = viewHolder.adapterPosition
+
+            if(direction == ItemTouchHelper.LEFT){
+                val call_eliminar_curso = serviceGenerator.EliminarCurso(archived[position].codigo, archived[position].carrera_id)
+
+                call_eliminar_curso.enqueue(object : Callback<curso>{
+                    override fun onResponse(call: Call<curso>, response: Response<curso>) {
+                        if (response.isSuccessful) {
+                            recyclerView.apply {
+                                layoutManager = LinearLayoutManager(this@CrudCursos)
+                                archived.removeAt(position)
+                                adapter?.notifyItemRemoved(position)
+                                Toast.makeText(applicationContext, "Curso eliminado.", Toast.LENGTH_SHORT).show()
+                                adapter = Cursos_Adapter(archived, this@CrudCursos)
+                                adaptador = adapter as Cursos_Adapter
+
+
+                            }
+                            Log.e("success", response.body().toString())
+                        }
+                    }
+
+                    override fun onFailure(call: Call<curso>, t: Throwable) {
+                        t.printStackTrace()
+                        Log.e("failed", t.message.toString())
+                    }
+
+                })
+
+
+                recyclerView.adapter = adaptador
+            }
+
+        }
+            override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
+
+                RecyclerViewSwipeDecorator.Builder(this@CrudCursos, c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(this@CrudCursos, R.color.red))
+                    .addSwipeLeftActionIcon(R.drawable.ic_baseline_delete_24)
+                    .addSwipeRightBackgroundColor(ContextCompat.getColor(this@CrudCursos, R.color.green))
+                    .addSwipeRightActionIcon(R.drawable.ic_baseline_edit_24)
+                    .create()
+                    .decorate()
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
         val add: FloatingActionButton = findViewById(R.id.add_curso)
         add.setOnClickListener { view ->
             Toast.makeText(this, "Dentro del botón flotante.", Toast.LENGTH_SHORT).show()

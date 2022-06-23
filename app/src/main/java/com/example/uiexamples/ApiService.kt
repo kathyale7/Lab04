@@ -18,6 +18,9 @@ interface ApiService {
                      @Query("creditos") creditos:Int, @Query("horassemanales") horassemanales:Int,
                      @Query("carrera") carrera:Int, @Query("ciclo") ciclo:Int): Call<curso>
 
+    @GET("cursos?accion=eliminar")
+    fun EliminarCurso(@Query("id_curso") id_curso:Int, @Query("id_carrera") id_carrera:Int): Call<curso>
+
     @FormUrlEncoded
     @POST("Ingresar")
     fun login(@Field("user") USUARIO_ID:String, @Field("contrasena") CLAVE:String): Call<usuario>
