@@ -22,7 +22,7 @@
                 android:layout_height="20dp"
                 app:popupTheme="@style/Theme.UIExamples.PopupOverlay"/>
         <androidx.appcompat.widget.SearchView
-                android:id="@+id/person_search2"
+                android:id="@+id/curso_search2"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:textCursorDrawable="@null"

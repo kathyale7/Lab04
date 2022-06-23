@@ -68,12 +68,19 @@ class Cursos_Adapter(private var items: ArrayList<curso>, private val itemClickL
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
+
                 if (charSearch.isEmpty()) {
                     itemsList = items
                 } else {
                     val resultList = ArrayList<curso>()
                     for (row in items) {
                         if (row.nombre.toLowerCase().contains(charSearch.toLowerCase())) {
+                            resultList.add(row)
+                        }
+                        if (row.codigo.toString().toLowerCase().contains(charSearch.toLowerCase())) {
+                            resultList.add(row)
+                        }
+                        if (row.carrera_id.toString().toLowerCase().contains(charSearch.toLowerCase())) {
                             resultList.add(row)
                         }
                     }

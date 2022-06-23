@@ -31,7 +31,7 @@ class CrudCursos : AppCompatActivity(), Cursos_Adapter.onCursoClickListener {
     var jobforms: JobForms = JobForms.instance
 
     lateinit var lista2: RecyclerView
-    lateinit var adaptador2:RecyclerView_Adapter2
+    lateinit var adaptador:Cursos_Adapter
     lateinit var JobForm: JobForm
     var archived = ArrayList<JobForm>()
     var position: Int = 0
@@ -49,6 +49,8 @@ class CrudCursos : AppCompatActivity(), Cursos_Adapter.onCursoClickListener {
                     recyclerView.apply {
                         layoutManager = LinearLayoutManager(this@CrudCursos)
                         adapter = Cursos_Adapter(response.body()!! as ArrayList<curso>, this@CrudCursos)
+                        adaptador = adapter as Cursos_Adapter
+
                     }
                     Log.e("success", response.body().toString())
                 }
@@ -61,6 +63,18 @@ class CrudCursos : AppCompatActivity(), Cursos_Adapter.onCursoClickListener {
 
         })
 
+        findViewById<SearchView>(R.id.curso_search2).setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                    adaptador.filter.filter(newText)
+
+
+                return false
+            }
+        })
 
 }
 
