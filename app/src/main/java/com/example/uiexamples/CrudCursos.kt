@@ -75,7 +75,22 @@ class CrudCursos : AppCompatActivity(), Cursos_Adapter.onCursoClickListener {
                 return false
             }
         })
+        val add: FloatingActionButton = findViewById(R.id.add_curso)
+        add.setOnClickListener { view ->
+            Toast.makeText(this, "Dentro del botón flotante.", Toast.LENGTH_SHORT).show()
+            Snackbar.make(view, "Se inserto el curso correctamente.", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
 
+
+            val i = Intent(this, InsertarCurso::class.java)
+            recyclerView.adapter?.notifyDataSetChanged()
+            //adaptador = Cursos_Adapter((jobforms.getApplications(), this@CrudJobforms)
+            recyclerView.adapter = adaptador
+            startActivity(i)
+            // your code to validate the user_name and password combination
+            // and verify the same
+
+        }
 }
 
 

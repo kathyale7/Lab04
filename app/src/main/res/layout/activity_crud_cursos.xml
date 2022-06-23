@@ -21,34 +21,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 app:popupTheme="@style/Theme.UIExamples.PopupOverlay"/>
-        <androidx.appcompat.widget.SearchView
-                android:id="@+id/curso_search2"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:textCursorDrawable="@null"
-                app:iconifiedByDefault="false"
-                android:background="@color/white"  />
-
-        <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar3"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                app:popupTheme="@style/Theme.UIExamples.PopupOverlay"/>
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/lista_cursos"
-                android:layout_width="match_parent"
-                android:background="@color/white"
-                android:layout_height="552dp">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:background="@color/purple_200"
                 android:layout_height="wrap_content">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/add2"
+                    android:id="@+id/add_curso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
@@ -67,6 +46,27 @@
 
             />
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.SearchView
+                android:id="@+id/curso_search2"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:textCursorDrawable="@null"
+                app:iconifiedByDefault="false"
+                android:background="@color/white"  >
+        </androidx.appcompat.widget.SearchView>
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar3"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                app:popupTheme="@style/Theme.UIExamples.PopupOverlay"/>
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lista_cursos"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="552dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </LinearLayout>
