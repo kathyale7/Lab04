@@ -15,4 +15,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("Ingresar")
     fun login(@Field("user") USUARIO_ID:String, @Field("contrasena") CLAVE:String): Call<usuario>
+
+    @GET("mantenimientoalumnos")
+    fun getAlumnos(): Call<MutableList<alumno>>
 }

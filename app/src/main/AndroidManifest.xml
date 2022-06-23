@@ -20,9 +20,11 @@
                 android:exported="true"/>
         <activity
                 android:name=".CrudAlumnos"
+                android:label="Alumnos"
                 android:exported="true"/>
         <activity
                 android:name=".CrudCiclos"
+                android:label="Cursos"
                 android:exported="true"/>
         <activity
                 android:name=".CrudCarreras"
