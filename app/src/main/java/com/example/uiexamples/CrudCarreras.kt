@@ -44,7 +44,7 @@ class CrudCarreras : AppCompatActivity(), RecyclerView_Adapter2.onJobFormClickLi
         val textView = findViewById<TextView>(R.id.search_src_text)
         textView.setTextColor(Color.BLACK)
 
-        lista2 = findViewById(R.id.lista2)
+        lista2 = findViewById(R.id.lista_cursos)
         lista2.layoutManager = LinearLayoutManager(lista2.context)
         lista2.setHasFixedSize(true)
         adaptador2 = RecyclerView_Adapter2(jobforms.getApplications(), this)

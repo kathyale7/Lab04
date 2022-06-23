@@ -7,9 +7,9 @@
     <group
             android:id="@+id/grp_jobs">
         <item
-                android:id="@+id/nav_notasP"
+                android:id="@+id/nav_historialA"
                 android:icon="@drawable/ic_score_sheets"
-                android:title="Notas"/>
+                android:title="Historial"/>
     </group>
 
     <group

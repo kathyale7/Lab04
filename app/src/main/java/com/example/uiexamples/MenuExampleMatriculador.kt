@@ -23,7 +23,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 
 
-class MenuExampleStandard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
+class MenuExampleMatriculador : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var homeFragment: HomeFragment
@@ -32,7 +32,7 @@ class MenuExampleStandard : AppCompatActivity(), NavigationView.OnNavigationItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_example_standard)
+        setContentView(R.layout.activity_menu_example_matriculador)
 
         val bundle = intent.extras
 
@@ -101,15 +101,11 @@ class MenuExampleStandard : AppCompatActivity(), NavigationView.OnNavigationItem
                     .commit()
             }
 
-            R.id.nav_jobapplication -> {
-                val i = Intent(this, JobApplication::class.java)
+            R.id.nav_matriculaM -> {
+                val i = Intent(this, Matricula::class.java)
                 startActivity(i)
             }
-            R.id.nav_oferta -> {
-                val i = Intent(this, ChangePassword::class.java)
-                finish()
-                startActivity(i)
-            }
+
             R.id.nav_logout -> {
                 val i = Intent(this, LoginExample::class.java)
                 finish()

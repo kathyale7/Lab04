@@ -7,13 +7,15 @@
     <group
             android:id="@+id/grp_jobs">
         <item
-                android:id="@+id/nav_notasP"
-                android:icon="@drawable/ic_score_sheets"
-                android:title="Notas"/>
-    </group>
+                android:id="@+id/nav_matriculaM"
+                android:icon="@drawable/ic_i_training_class"
+                android:title="Matricula"/>
 
+
+    </group>
     <group
-    >
-        <item android:title="Cerrar Sesión" android:icon="@drawable/ic_logout_box_line" android:id="@+id/nav_logout"/>
+            android:id="@+id/logout">
+        <item android:title="Cerrar Sesión" android:icon="@drawable/ic_logout_box_line"
+              android:id="@+id/nav_logout"/>
     </group>
 </menu>

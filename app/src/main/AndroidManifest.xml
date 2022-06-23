@@ -98,11 +98,19 @@
                 android:theme="@style/Theme.UIExamples.NoActionBar"/>
         <activity
                 android:name=".MenuExampleAdministrator"
-                android:label="@string/title_activity_menu_example"
+                android:label="Administrador"
                 android:theme="@style/Theme.UIExamples.NoActionBar"/>
         <activity
                 android:name=".MenuExampleStandard"
-                android:label="@string/title_activity_menu_example"
+                android:label="Profesor"
+                android:theme="@style/Theme.UIExamples.NoActionBar"/>
+        <activity
+                android:name=".MenuExampleAlumno"
+                android:label="Alumno"
+                android:theme="@style/Theme.UIExamples.NoActionBar"/>
+        <activity
+                android:name=".MenuExampleMatriculador"
+                android:label="Matriculador"
                 android:theme="@style/Theme.UIExamples.NoActionBar"/>
         <activity
                 android:name=".ChangePassword"

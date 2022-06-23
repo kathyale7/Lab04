@@ -53,16 +53,38 @@ class LoginExample : AppCompatActivity() {
                             finish()
                             startActivity(i)
                         }
+                        if (Usuario.ROL_ID == 2){
+
+                            val i = Intent(applicationContext, MenuExampleMatriculador::class.java)
+
+                            finish()
+                            startActivity(i)
+                        }
+                        if (Usuario.ROL_ID == 3){
+
+                            val i = Intent(applicationContext, MenuExampleStandard::class.java)
+
+                            finish()
+                            startActivity(i)
+                        }
+                        if (Usuario.ROL_ID == 4){
+
+                            val i = Intent(applicationContext, MenuExampleAlumno::class.java)
+
+                            finish()
+                            startActivity(i)
+                        }
 
                         Log.e("success", response.body().toString())
                     }
-                    Usuario = response.body()!!
+
 
                 }
 
                 override fun onFailure(call: Call<usuario>, t: Throwable) {
                     t.printStackTrace()
                     Log.e("failed", t.message.toString())
+                    Toast.makeText(applicationContext, "Usuario no registrado", Toast.LENGTH_LONG).show()
                 }
 
             })
