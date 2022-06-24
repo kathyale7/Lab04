@@ -29,12 +29,15 @@ class MenuExampleStandard : AppCompatActivity(), NavigationView.OnNavigationItem
     private lateinit var homeFragment: HomeFragment
     private lateinit var galleryFragment: GalleryFragment
     private lateinit var slideshowFragment: SlideshowFragment
+    private var ced:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_example_standard)
 
         val bundle = intent.extras
+        val pced = bundle!!.getString("ced_p")
+        ced = Integer.parseInt(pced)
 
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -101,13 +104,11 @@ class MenuExampleStandard : AppCompatActivity(), NavigationView.OnNavigationItem
                     .commit()
             }
 
-            R.id.nav_jobapplication -> {
-                val i = Intent(this, JobApplication::class.java)
-                startActivity(i)
-            }
-            R.id.nav_oferta -> {
-                val i = Intent(this, ChangePassword::class.java)
-                finish()
+
+            R.id.nav_notasP -> {
+                val i = Intent(this, NotasPorCurso::class.java)
+                i.putExtra("ced", ced)
+
                 startActivity(i)
             }
             R.id.nav_logout -> {

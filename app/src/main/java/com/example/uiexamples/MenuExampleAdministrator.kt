@@ -103,10 +103,6 @@ class MenuExampleAdministrator : AppCompatActivity(), NavigationView.OnNavigatio
 
 
 
-            R.id.nav_historial -> {
-                val i = Intent(this, Historial::class.java)
-                startActivity(i)
-            }
 
             R.id.nav_logout -> {
                 val i = Intent(this, LoginExample::class.java)

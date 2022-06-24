@@ -30,8 +30,7 @@
               android:id="@+id/nav_oferta"/>
         <item android:title="Matricula" android:icon="@drawable/ic_form_new_28_regular"
               android:id="@+id/nav_matricula"/>
-        <item android:title="Historial" android:icon="@drawable/ic_history_24_filled"
-              android:id="@+id/nav_historial"/>
+
         <item android:title="Seguridad" android:icon="@drawable/ic_menu_manage"
               android:id="@+id/nav_seguridad"/>
 

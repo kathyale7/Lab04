@@ -18,6 +18,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
                 app:popupTheme="@style/Theme.UIExamples.PopupOverlay"/>
+        <TextView
+                android:text="Matriculados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView10"
+                android:fontFamily="@font/poppins_semibold" android:textSize="24sp" android:textColor="@color/black"
+                android:textAlignment="center"/>
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp">

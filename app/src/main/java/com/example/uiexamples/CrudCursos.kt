@@ -181,6 +181,6 @@ class CrudCursos : AppCompatActivity(), Cursos_Adapter.onCursoClickListener {
 
 
     override fun onItemClick(cursos: curso) {
-        TODO("Not yet implemented")
+        Toast.makeText(applicationContext, "Curso: " + cursos.nombre , Toast.LENGTH_SHORT).show()
     }
 }

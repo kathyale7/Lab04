@@ -68,5 +68,13 @@ interface ApiService {
     @GET("mantenimientoprofesor?accion=eliminar")
     fun EliminarProfesor(@Query("codigo") codigo:Int): Call<profesor>
 
+    @GET("mantenimientogrupo?accion=gruposprofe")
+    fun GruposProfesor(@Query("id_profe") id_profe:Int): Call<MutableList<grupo>>
 
+    @GET("historial_alumno?accion=matricula_grupo")
+    fun AlumnosMatriculados(@Query("num_grupo") num_grupo:Int): Call<MutableList<matricula_class>>
+
+    @GET("historial_alumno?accion=NotaNueva")
+    fun ActualizarNota(@Query("cedula") cedula:Int, @Query("curso") curso:Int,
+                           @Query("grupo") grupo:Int, @Query("nota") nota:Int): Call<matricula_class>
 }

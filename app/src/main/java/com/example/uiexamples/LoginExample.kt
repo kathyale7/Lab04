@@ -63,6 +63,7 @@ class LoginExample : AppCompatActivity() {
                         if (Usuario.ROL_ID == 3){
 
                             val i = Intent(applicationContext, MenuExampleStandard::class.java)
+                            i.putExtra("ced_p", Usuario.USUARIO_ID)
 
                             finish()
                             startActivity(i)
