@@ -77,4 +77,10 @@ interface ApiService {
     @GET("historial_alumno?accion=NotaNueva")
     fun ActualizarNota(@Query("cedula") cedula:Int, @Query("curso") curso:Int,
                            @Query("grupo") grupo:Int, @Query("nota") nota:Int): Call<matricula_class>
+
+    @GET("mantenimientociclo?accion=ver")
+    fun getCiclos(): Call<MutableList<ciclo>>
+
+    @GET("mantenimientocarrera?accion=ver")
+    fun getCarreras(): Call<MutableList<carrera>>
 }
