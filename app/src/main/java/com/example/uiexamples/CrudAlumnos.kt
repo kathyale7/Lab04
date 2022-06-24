@@ -179,9 +179,11 @@ class CrudAlumnos : AppCompatActivity(), Alumnos_Adapter.onAlumnoClickListener {
 
 
     override fun onItemClick(alumnos: alumno) {
-        val i = Intent(this@CrudAlumnos, ConsultarJobApplication::class.java)
+        val i = Intent(this@CrudAlumnos, CrudHistorialAlumno::class.java)
 
-        i.putExtra("poss", alumnos.cedula)
+        i.putExtra("ced", alumnos.cedula)
+        i.putExtra("nom", alumnos.nombre)
+        i.putExtra("carr", alumnos.carrera_id)
 
         startActivity(i)
     }

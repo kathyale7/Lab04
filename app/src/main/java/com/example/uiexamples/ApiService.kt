@@ -47,4 +47,7 @@ interface ApiService {
 
     @GET("mantenimientoalumnos?accion=eliminar")
     fun EliminarAlumno(@Query("id_alumno") id_alumno:Int): Call<alumno>
+
+    @GET("historial_alumno?accion=Buscar_alumno")
+    fun HistorialAlumnoAdmin(@Query("id_alumno") id_alumno:Int): Call<MutableList<matricula_class>>
 }

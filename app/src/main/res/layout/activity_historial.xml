@@ -18,6 +18,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
                 app:popupTheme="@style/Theme.UIExamples.PopupOverlay"/>
+
+        <TextView
+                android:text="Historial"
+                android:layout_width="match_parent"
+                android:layout_height="47dp" android:id="@+id/textView4" android:fontFamily="@font/poppins_semibold"
+                android:textSize="24sp" android:textAlignment="center" android:textColor="@color/black"/>
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp">
@@ -25,13 +31,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.SearchView
-                android:id="@+id/person_search3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textCursorDrawable="@null"
-                app:iconifiedByDefault="false"
-                app:queryBackground="@null" />
+
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lista_historial"

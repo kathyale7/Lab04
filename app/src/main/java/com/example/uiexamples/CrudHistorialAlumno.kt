@@ -5,6 +5,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -16,212 +18,74 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CrudHistorialAlumno : AppCompatActivity(), RecyclerView_Adapter2.onJobFormClickListener {
+class CrudHistorialAlumno : AppCompatActivity(), Historial_Adapter.onHistorialClickListener {
 
     var jobforms: JobForms = JobForms.instance
 
     lateinit var lista2: RecyclerView
-    lateinit var adaptador2:RecyclerView_Adapter2
+    lateinit var adaptador:Historial_Adapter
     lateinit var JobForm: JobForm
-    var archived = ArrayList<JobForm>()
+    var archived = ArrayList<matricula_class>()
     var position: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_crud_cursos)
+        setContentView(R.layout.activity_crud_historial_alumno)
+        var new_cedula = findViewById(R.id.textViewCed) as TextView
+        var new_nombre = findViewById(R.id.textViewNombre) as TextView
+        var new_carrera = findViewById(R.id.textViewCarrera) as TextView
 
-        val searchIcon = findViewById<ImageView>(R.id.search_mag_icon)
-        searchIcon.setColorFilter(Color.BLACK)
-
-
-        val cancelIcon = findViewById<ImageView>(R.id.search_close_btn)
-        cancelIcon.setColorFilter(Color.BLACK)
-
-
-        val textView = findViewById<TextView>(R.id.search_src_text)
-        textView.setTextColor(Color.BLACK)
-
-        lista2 = findViewById(R.id.lista2)
-        lista2.layoutManager = LinearLayoutManager(lista2.context)
-        lista2.setHasFixedSize(true)
-        adaptador2 = RecyclerView_Adapter2(jobforms.getApplications(), this)
-
-        /*adaptador2.onItemClick = {
-            val o = Intent(this, ConsultarJobApplication::class.java)
-            o.putExtra("poss", it)
-            startActivity(o)
-
-        }*/
-        findViewById<SearchView>(R.id.person_search2).setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                adaptador2.filter.filter(newText)
-                return false
-            }
-        })
-
-        getListOfForms()
+        val bundle = intent.extras
+        val pced = bundle!!.getInt("ced")
+        val pnom = bundle!!.getString("nom")
+        val pcarr = bundle!!.getInt("carr")
 
 
-        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-                val fromPosition: Int = viewHolder.adapterPosition
-                val toPosition: Int = target.adapterPosition
+        new_cedula.setText(pced.toString())
+        new_nombre.setText(pnom)
+        new_carrera.setText(pcarr.toString())
 
+        val cedula = new_cedula.text;
+        val listaHistorialAd = findViewById<RecyclerView>(R.id.lista_historial_admin)
+        val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
+        val call = serviceGenerator.HistorialAlumnoAdmin(Integer.parseInt(cedula.toString()))
 
-                Collections.swap(jobforms.getApplications(), fromPosition, toPosition)
-
-                lista2.adapter?.notifyItemMoved(fromPosition, toPosition)
-
-                return false
-            }
-
-
-
-
-
-
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-
-                position = viewHolder.adapterPosition
-
-                if(direction == ItemTouchHelper.LEFT){
-                    JobForm = JobForm(jobforms.getApplications()[position].first_name,
-                        jobforms.getApplications()[position].last_name,
-                        jobforms.getApplications()[position].street_address,
-                        jobforms.getApplications()[position].street_address2,
-                        jobforms.getApplications()[position].city,
-                        jobforms.getApplications()[position].state,
-                        jobforms.getApplications()[position].zip_code,
-                        jobforms.getApplications()[position].country,
-                        jobforms.getApplications()[position].email,
-                        jobforms.getApplications()[position].area_code,
-                        jobforms.getApplications()[position].phone_num,
-                        jobforms.getApplications()[position].position,
-                        jobforms.getApplications()[position].start_date)
-                    jobforms.deleteApplication(position)
-                    lista2.adapter?.notifyItemRemoved(position)
-
-                    Snackbar.make(lista2, JobForm.first_name + " "+ JobForm.last_name +" fue eliminado/a.", Snackbar.LENGTH_LONG).setAction("Undo") {
-                        jobforms.getApplications().add(position, JobForm)
-                        lista2.adapter?.notifyItemInserted(position)
-                    }.show()
-                    adaptador2 = RecyclerView_Adapter2(jobforms.getApplications(), this@CrudHistorialAlumno)
-                    lista2.adapter = adaptador2
-                }else{
-
-                    position = viewHolder.adapterPosition
-                    JobForm = JobForm(jobforms.getApplications()[position].first_name,
-                        jobforms.getApplications()[position].last_name,
-                        jobforms.getApplications()[position].street_address,
-                        jobforms.getApplications()[position].street_address2,
-                        jobforms.getApplications()[position].city,
-                        jobforms.getApplications()[position].state,
-                        jobforms.getApplications()[position].zip_code,
-                        jobforms.getApplications()[position].country,
-                        jobforms.getApplications()[position].email,
-                        jobforms.getApplications()[position].area_code,
-                        jobforms.getApplications()[position].phone_num,
-                        jobforms.getApplications()[position].position,
-                        jobforms.getApplications()[position].start_date)
-                    archived.add(JobForm)
-
-
-                    val i = Intent(this@CrudHistorialAlumno, ModificarJobApplication::class.java)
-
-                    i.putExtra("pfirst_name", jobforms.getApplications()[position].first_name)
-                    i.putExtra("plast_name",jobforms.getApplications()[position].last_name)
-                    i.putExtra("pemail",jobforms.getApplications()[position].email)
-                    i.putExtra("pposition",jobforms.getApplications()[position].position)
-                    i.putExtra("pstart_date",jobforms.getApplications()[position].start_date)
-                    i.putExtra("poss", position)
-
-                    startActivity(i)
-
-
-
-
-                    Snackbar.make(lista2, JobForm.first_name + " se editó...", Snackbar.LENGTH_LONG).setAction("Undo") {
-                        archived.removeAt(archived.lastIndexOf(JobForm))
-                        jobforms.getApplications().add(position, JobForm)
-                        lista2.adapter?.notifyItemInserted(position)
-                    }.show()
-                    adaptador2 = RecyclerView_Adapter2(jobforms.getApplications(), this@CrudHistorialAlumno)
-                    lista2.adapter = adaptador2
-
-                    //getListOfPersons()
+        call.enqueue(object : Callback<MutableList<matricula_class>> {
+            override fun onResponse(call: Call<MutableList<matricula_class>>, response: Response<MutableList<matricula_class>>) {
+                if (response.isSuccessful) {
+                    listaHistorialAd.apply {
+                        layoutManager = LinearLayoutManager(this@CrudHistorialAlumno)
+                        adapter = Historial_Adapter(response.body()!! as ArrayList<matricula_class>, this@CrudHistorialAlumno)
+                        adaptador = adapter as Historial_Adapter
+                        archived= response.body()!! as ArrayList<matricula_class>
+                    }
+                    Log.e("success", response.body().toString())
                 }
             }
 
-            override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
-
-                RecyclerViewSwipeDecorator.Builder(this@CrudHistorialAlumno, c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(this@CrudHistorialAlumno, R.color.red))
-                    .addSwipeLeftActionIcon(R.drawable.ic_baseline_delete_24)
-                    .addSwipeRightBackgroundColor(ContextCompat.getColor(this@CrudHistorialAlumno, R.color.green))
-                    .addSwipeRightActionIcon(R.drawable.ic_baseline_edit_24)
-                    .create()
-                    .decorate()
-                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            override fun onFailure(call: Call<MutableList<matricula_class>>, t: Throwable) {
+                t.printStackTrace()
+                Log.e("failed", t.message.toString())
             }
 
-        }
-
-
-
-        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
-        itemTouchHelper.attachToRecyclerView(lista2)
-
-
-
-        val add: FloatingActionButton = findViewById(R.id.add2)
-        add.setOnClickListener { view ->
-            Toast.makeText(this, "Dentro del botón flotante", Toast.LENGTH_SHORT).show()
-            Snackbar.make(view, "Se inserto a la persona correctamente", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-
-            ///persona = Persona("luc", "123", "Lucia", R.drawable.foto07)
-            ///personas.addPersona(persona)
-            ///archived.add(persona)
-
-
-            //val bundle = Bundle()
-
-            val i = Intent(this, InsertarJobApplication::class.java)
-            lista2.adapter?.notifyDataSetChanged()
-            adaptador2 = RecyclerView_Adapter2(jobforms.getApplications(), this@CrudHistorialAlumno)
-            lista2.adapter = adaptador2
-
-//
-            startActivity(i)
-            // your code to validate the user_name and password combination
-            // and verify the same
-
-        }
+        })
 
 
     }
 
-    private fun getListOfForms() {
-        val nForms = ArrayList<JobForm>()
-        for (p in jobforms.getApplications()) {
-            nForms.add(p)
-        }
-        adaptador2 = RecyclerView_Adapter2(nForms, this@CrudHistorialAlumno)
-        lista2.adapter = adaptador2
-    }
 
-    override fun onItemClick(form: JobForm) {
+
+
+    override fun onItemClick(historial: matricula_class) {
         val i = Intent(this@CrudHistorialAlumno, ConsultarJobApplication::class.java)
 
-        i.putExtra("poss", form)
+        i.putExtra("poss", historial.alumno_id)
 
         startActivity(i)
     }

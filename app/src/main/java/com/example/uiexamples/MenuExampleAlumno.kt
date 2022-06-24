@@ -29,6 +29,7 @@ class MenuExampleAlumno : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private lateinit var homeFragment: HomeFragment
     private lateinit var galleryFragment: GalleryFragment
     private lateinit var slideshowFragment: SlideshowFragment
+    private var ced:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +37,8 @@ class MenuExampleAlumno : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         val bundle = intent.extras
 
+        val pced = bundle!!.getString("ced")
+        ced = Integer.parseInt(pced)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -103,6 +106,8 @@ class MenuExampleAlumno : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
             R.id.nav_historialA -> {
                 val i = Intent(this, Historial::class.java)
+
+                i.putExtra("ced", ced)
                 startActivity(i)
             }
 
