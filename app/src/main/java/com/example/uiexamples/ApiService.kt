@@ -30,6 +30,21 @@ interface ApiService {
     @POST("Ingresar")
     fun login(@Field("user") USUARIO_ID:String, @Field("contrasena") CLAVE:String): Call<usuario>
 
-    @GET("mantenimientoalumnos")
+    @GET("mantenimientoalumnos?accion=ver")
     fun getAlumnos(): Call<MutableList<alumno>>
+
+    @GET("mantenimientoalumnos?accion=Agregar")
+    fun AgregarAlumno(@Query("cedula") cedula:Int, @Query("usuario_id") usuario_id:String,
+                     @Query("nombre") nombre:String, @Query("telefono") telefono:String,
+                     @Query("email") email:String, @Query("fecha_nac") fecha_nac:String,
+                      @Query("carrera_id") carrera_id:Int, @Query("pass") pass:String): Call<alumno>
+
+    @GET("mantenimientoalumnos?accion=Actualizar")
+    fun ActualizarAlumno(@Query("cedula") cedula:Int, @Query("usuario_id") usuario_id:String,
+                         @Query("nombre") nombre:String, @Query("telefono") telefono:String,
+                         @Query("email") email:String, @Query("fecha_nac") fecha_nac:String,
+                         @Query("carrera_id") carrera_id:Int): Call<alumno>
+
+    @GET("mantenimientoalumnos?accion=eliminar")
+    fun EliminarAlumno(@Query("id_alumno") id_alumno:Int): Call<alumno>
 }

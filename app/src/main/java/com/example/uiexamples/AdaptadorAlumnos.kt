@@ -77,6 +77,12 @@ class Alumnos_Adapter(private var items: ArrayList<alumno>, private val itemClic
                         if (row.nombre.toLowerCase().contains(charSearch.toLowerCase())) {
                             resultList.add(row)
                         }
+                        if (row.cedula.toString().toLowerCase().contains(charSearch.toLowerCase())) {
+                            resultList.add(row)
+                        }
+                        if (row.carrera_id.toString().toLowerCase().contains(charSearch.toLowerCase())) {
+                            resultList.add(row)
+                        }
                     }
                     itemsList = resultList
                 }

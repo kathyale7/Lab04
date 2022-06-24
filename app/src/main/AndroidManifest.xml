@@ -14,6 +14,12 @@
             android:theme="@style/Theme.UIExamples"
             android:usesCleartextTraffic="true">
         <activity
+                android:name=".ModificarAlumno"
+                android:exported="true"/>
+        <activity
+                android:name=".InsertarAlumno"
+                android:exported="true"/>
+        <activity
                 android:name=".ModificarCurso"
                 android:exported="true"/>
         <activity

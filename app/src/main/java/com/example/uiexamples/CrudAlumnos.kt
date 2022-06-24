@@ -25,12 +25,10 @@ import kotlin.collections.ArrayList
 
 class CrudAlumnos : AppCompatActivity(), Alumnos_Adapter.onAlumnoClickListener {
 
-    var jobforms: JobForms = JobForms.instance
 
     lateinit var lista2: RecyclerView
-    lateinit var adaptador2:RecyclerView_Adapter2
-    lateinit var JobForm: JobForm
-    var archived = ArrayList<JobForm>()
+    lateinit var adaptador:Alumnos_Adapter
+    var archived = ArrayList<alumno>()
     var position: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +45,8 @@ class CrudAlumnos : AppCompatActivity(), Alumnos_Adapter.onAlumnoClickListener {
                     listaAlumnos.apply {
                         layoutManager = LinearLayoutManager(this@CrudAlumnos)
                         adapter = Alumnos_Adapter(response.body()!! as ArrayList<alumno>, this@CrudAlumnos)
+                        adaptador = adapter as Alumnos_Adapter
+                        archived= response.body()!! as ArrayList<alumno>
                     }
                     Log.e("success", response.body().toString())
                 }
@@ -59,6 +59,120 @@ class CrudAlumnos : AppCompatActivity(), Alumnos_Adapter.onAlumnoClickListener {
 
         })
 
+        findViewById<SearchView>(R.id.alumno_search2).setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adaptador.filter.filter(newText)
+
+
+                return false
+            }
+        })
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                val fromPosition: Int = viewHolder.adapterPosition
+                val toPosition: Int = target.adapterPosition
+
+
+                Collections.swap(archived, fromPosition, toPosition)
+
+                recyclerView.adapter?.notifyItemMoved(fromPosition, toPosition)
+
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+                position = viewHolder.adapterPosition
+
+                if(direction == ItemTouchHelper.LEFT){
+                    val call_eliminar_alumno = serviceGenerator.EliminarAlumno(archived[position].cedula)
+
+                    call_eliminar_alumno.enqueue(object : Callback<alumno>{
+                        override fun onResponse(call: Call<alumno>, response: Response<alumno>) {
+                            if (response.isSuccessful) {
+                                listaAlumnos.apply {
+                                    layoutManager = LinearLayoutManager(this@CrudAlumnos)
+                                    archived.removeAt(position)
+                                    adapter?.notifyItemRemoved(position)
+                                    Toast.makeText(applicationContext, "Alumno eliminado.", Toast.LENGTH_SHORT).show()
+                                    adapter = Alumnos_Adapter(archived, this@CrudAlumnos)
+                                    adaptador = adapter as Alumnos_Adapter
+
+
+                                }
+                                Log.e("success", response.body().toString())
+                            }
+                        }
+
+                        override fun onFailure(call: Call<alumno>, t: Throwable) {
+                            t.printStackTrace()
+                            Log.e("failed", t.message.toString())
+                        }
+
+                    })
+
+
+                    listaAlumnos.adapter = adaptador
+                } else {
+                    position = viewHolder.adapterPosition
+
+
+
+                    val i = Intent(this@CrudAlumnos, ModificarAlumno::class.java)
+
+
+
+                    i.putExtra("pced", archived[position].cedula)
+                    i.putExtra("pnom",archived[position].nombre)
+                    i.putExtra("ptel",archived[position].telefono)
+                    i.putExtra("pcorr",archived[position].email)
+                    i.putExtra("pfec",archived[position].fecha_nacimiento)
+
+                    i.putExtra("pcarr",archived[position].carrera_id)
+                    i.putExtra("pcont","root")
+
+
+                    startActivity(i)
+                    Toast.makeText(applicationContext, "Curso actualizado.", Toast.LENGTH_SHORT).show()
+                    listaAlumnos.adapter?.notifyDataSetChanged()
+                    listaAlumnos.adapter = adaptador
+                }
+
+            }
+            override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
+
+                RecyclerViewSwipeDecorator.Builder(this@CrudAlumnos, c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(this@CrudAlumnos, R.color.red))
+                    .addSwipeLeftActionIcon(R.drawable.ic_baseline_delete_24)
+                    .addSwipeRightBackgroundColor(ContextCompat.getColor(this@CrudAlumnos, R.color.green))
+                    .addSwipeRightActionIcon(R.drawable.ic_baseline_edit_24)
+                    .create()
+                    .decorate()
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(listaAlumnos)
+
+        val add: FloatingActionButton = findViewById(R.id.add_alumno)
+        add.setOnClickListener { view ->
+            Toast.makeText(this, "Dentro del botón flotante.", Toast.LENGTH_SHORT).show()
+            Snackbar.make(view, "Se inserto el curso correctamente.", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+
+
+            val i = Intent(this, InsertarAlumno::class.java)
+            listaAlumnos.adapter?.notifyDataSetChanged()
+
+            listaAlumnos.adapter = adaptador
+            startActivity(i)
+
+
+        }
 
     }
 
