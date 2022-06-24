@@ -34,7 +34,10 @@ class InsertarCurso : AppCompatActivity() {
             val ciclo = in_ciclo.text;
 
             val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
-            val call = serviceGenerator.AgregarCurso(Integer.parseInt(codigo.toString()), curso_n.toString(), Integer.parseInt(creditos.toString()), Integer.parseInt(horas.toString()),Integer.parseInt(carrera_id.toString()), Integer.parseInt(ciclo.toString()))
+            val call = serviceGenerator.AgregarCurso(Integer.parseInt(codigo.toString()),
+                curso_n.toString(), Integer.parseInt(creditos.toString()),
+                Integer.parseInt(horas.toString()),Integer.parseInt(carrera_id.toString()),
+                Integer.parseInt(ciclo.toString()))
 
                     call.enqueue(object : Callback<curso> {
                 override fun onResponse(call: Call<curso>, response: Response<curso>) {

@@ -123,6 +123,25 @@ class CrudCursos : AppCompatActivity(), Cursos_Adapter.onCursoClickListener {
 
 
                 recyclerView.adapter = adaptador
+            } else {
+                position = viewHolder.adapterPosition
+
+
+
+                val i = Intent(this@CrudCursos, ModificarCurso::class.java)
+
+                i.putExtra("pcod", archived[position].codigo)
+                i.putExtra("pcur",archived[position].nombre)
+                i.putExtra("pcre",archived[position].creditos)
+                i.putExtra("phor",archived[position].horas_semanales)
+                i.putExtra("pcarr",archived[position].carrera_id)
+                i.putExtra("pcic",archived[position].ciclo_id)
+
+
+                startActivity(i)
+                Toast.makeText(applicationContext, "Curso actualizado.", Toast.LENGTH_SHORT).show()
+                recyclerView.adapter?.notifyDataSetChanged()
+                recyclerView.adapter = adaptador
             }
 
         }
