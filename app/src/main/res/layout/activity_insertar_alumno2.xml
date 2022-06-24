@@ -13,7 +13,7 @@
             android:layout_marginTop="28dp" app:layout_constraintStart_toStartOf="parent">
         <ImageView
                 android:layout_width="142dp"
-                android:layout_height="85dp" app:srcCompat="@drawable/ic_college" android:id="@+id/imageView3"
+                android:layout_height="85dp" app:srcCompat="@drawable/ic_student" android:id="@+id/imageView3"
                 android:layout_weight="1" android:tint="@color/purple_500" tools:ignore="VectorDrawableCompat"/>
         <Space
                 android:layout_width="wrap_content"

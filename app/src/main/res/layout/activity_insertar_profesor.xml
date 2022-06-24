@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ModificarAlumno">
+        tools:context=".InsertarProfesor">
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="410dp"
@@ -13,7 +13,8 @@
             android:layout_marginTop="28dp" app:layout_constraintStart_toStartOf="parent">
         <ImageView
                 android:layout_width="142dp"
-                android:layout_height="85dp" app:srcCompat="@drawable/ic_student" android:id="@+id/imageView3"
+                android:layout_height="85dp" app:srcCompat="@drawable/ic_chalkboard_teacher"
+                android:id="@+id/imageView3"
                 android:layout_weight="1" android:tint="@color/purple_500" tools:ignore="VectorDrawableCompat"/>
         <Space
                 android:layout_width="wrap_content"
@@ -23,13 +24,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="78dp" android:layout_weight="1">
             <TextView
-                    android:text="Modificar Alumno"
+                    android:text="Insertar Profesor"
                     android:layout_width="266dp"
                     android:layout_height="43dp" android:id="@+id/bannerJobApplication3" android:layout_weight="1"
                     android:textStyle="bold" android:textColor="@color/black" android:textAlignment="viewStart"
                     android:textSize="24sp" android:editable="false" android:fontFamily="@font/poppins"/>
             <TextView
-                    android:text="Ingrese la información para modificar los alumnos."
+                    android:text="Ingrese la información para ingresar un profesor/a nuevo/a."
                     android:layout_width="230dp"
                     android:layout_height="45dp" android:id="@+id/bannerJobDescription3" android:layout_weight="1"
                     android:textColor="#000000" android:textSize="14sp" android:textAlignment="viewStart"
@@ -60,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/txtModificarCedula" android:layout_weight="1"
+                    android:id="@+id/txtInsertCedulaP" android:layout_weight="1"
                     android:hint="100000000" android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" android:fontFamily="@font/poppins"/>
         </LinearLayout>
@@ -82,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/txtModificarANombre" android:layout_weight="1"
+                    android:id="@+id/txtNombreP" android:layout_weight="1"
                     android:textSize="16sp" tools:ignore="TouchTargetSizeCheck"
                     android:fontFamily="@font/poppins" android:hint="Nombre Apellidos"/>
         </LinearLayout>
@@ -101,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="phone"
                     android:ems="10"
-                    android:id="@+id/txtModificarTelefono" android:layout_weight="1" android:hint="88888888"
+                    android:id="@+id/txtInsertTelefonoP" android:layout_weight="1" android:hint="88888888"
                     android:textSize="16sp" tools:ignore="TouchTargetSizeCheck" android:fontFamily="@font/poppins"/>
 
         </LinearLayout>
@@ -118,9 +119,9 @@
             <EditText
                     android:layout_width="435dp"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="textEmailAddress"
                     android:ems="10"
-                    android:id="@+id/txtModificarAEmail" android:layout_weight="1" android:hint="email@example.com"
+                    android:id="@+id/txtInsertEmailP" android:layout_weight="1" android:hint="email@example.com"
                     android:textSize="16sp" android:minHeight="43dp" tools:ignore="TouchTargetSizeCheck"
                     android:fontFamily="@font/poppins"/>
         </LinearLayout>
@@ -137,31 +138,13 @@
             <EditText
                     android:layout_width="182dp"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="date"
                     android:ems="10"
-                    android:id="@+id/txtModificarFecha" android:layout_weight="1" android:hint="09/01/1998"
+                    android:id="@+id/txtInsertFechaP" android:layout_weight="1" android:hint="09/01/1989"
                     android:textSize="16sp" android:minHeight="43dp" tools:ignore="TouchTargetSizeCheck"
                     android:fontFamily="@font/poppins"/>
         </LinearLayout>
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <TextView
-                    android:text="Carrera"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/textView12" android:layout_weight="1"
-                    android:textSize="16sp" android:textColor="#000000" android:textStyle="bold"
-                    android:textAlignment="textStart" android:fontFamily="@font/poppins"/>
-            <EditText
-                    android:layout_width="159dp"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/txtModificarACarrera" android:layout_weight="1" android:hint="1000"
-                    android:textSize="16sp" android:minHeight="43dp" tools:ignore="TouchTargetSizeCheck"
-                    android:fontFamily="@font/poppins"/>
-        </LinearLayout>
+
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -177,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     android:ems="10"
-                    android:id="@+id/txtModificarACcontrasena" android:layout_weight="1" android:hint="Contraseña"
+                    android:id="@+id/txtInsertCcontrasenaP" android:layout_weight="1" android:hint="Contraseña"
                     android:textSize="16sp" android:minHeight="43dp" tools:ignore="TouchTargetSizeCheck"
                     android:fontFamily="@font/poppins"/>
         </LinearLayout>
@@ -185,9 +168,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="42dp"/>
         <Button
-                android:text="Actualizar Alumno/a"
+                android:text="Agregar Profesor/a"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/btnModAlumno"
+                android:layout_height="wrap_content" android:id="@+id/btnInProfesor"
                 style="@style/Widget.AppCompat.Button" app:cornerRadius="15dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:textStyle="bold"
                 android:textSize="16sp" android:textAlignment="center" android:textAllCaps="false"

@@ -50,4 +50,23 @@ interface ApiService {
 
     @GET("historial_alumno?accion=Buscar_alumno")
     fun HistorialAlumnoAdmin(@Query("id_alumno") id_alumno:Int): Call<MutableList<matricula_class>>
+
+    @GET("mantenimientoprofesor?accion=ver")
+    fun getProfesor(): Call<MutableList<profesor>>
+
+    @GET("mantenimientoprofesor?accion=Agregar")
+    fun AgregarProfesor(@Query("cedula") cedula:Int, @Query("usuario_id") usuario_id:String,
+                      @Query("nombre") nombre:String, @Query("telefono") telefono:String,
+                      @Query("email") email:String, @Query("fecha_nac") fecha_nac:String,
+                        @Query("pass") pass:String): Call<profesor>
+
+    @GET("mantenimientoprofesor?accion=Actualizar")
+    fun ActualizarProfesor(@Query("cedula") cedula:Int, @Query("usuario_id") usuario_id:String,
+                         @Query("nombre") nombre:String, @Query("telefono") telefono:String,
+                         @Query("email") email:String, @Query("fecha_nac") fecha_nac:String): Call<profesor>
+
+    @GET("mantenimientoprofesor?accion=eliminar")
+    fun EliminarProfesor(@Query("codigo") codigo:Int): Call<profesor>
+
+
 }
