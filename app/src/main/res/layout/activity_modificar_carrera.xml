@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".InsertarCarrera">
+        tools:context=".ModificarCarrera">
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="410dp"
@@ -23,13 +23,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="78dp" android:layout_weight="1">
             <TextView
-                    android:text="Insertar Carrera"
+                    android:text="Modificar Carrera"
                     android:layout_width="266dp"
                     android:layout_height="43dp" android:id="@+id/bannerJobApplication3" android:layout_weight="1"
                     android:textStyle="bold" android:textColor="@color/black" android:textAlignment="viewStart"
                     android:textSize="24sp" android:editable="false" android:fontFamily="@font/poppins"/>
             <TextView
-                    android:text="Ingrese la información para ingresar una carrera nueva."
+                    android:text="Ingrese la información para modificar la carrera."
                     android:layout_width="230dp"
                     android:layout_height="45dp" android:id="@+id/bannerJobDescription3" android:layout_weight="1"
                     android:textColor="#000000" android:textSize="14sp" android:textAlignment="viewStart"
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/txtInsertCodigoC" android:layout_weight="1"
+                    android:id="@+id/txtModificarCodigoC" android:layout_weight="1"
                     android:hint="3000" android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" android:fontFamily="@font/poppins"/>
         </LinearLayout>
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/txtInsertarNombreC" android:layout_weight="1"
+                    android:id="@+id/txtModificarNombreC" android:layout_weight="1"
                     android:textSize="16sp" tools:ignore="TouchTargetSizeCheck"
                     android:fontFamily="@font/poppins" android:hint="Administracion"/>
         </LinearLayout>
@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:ems="10"
-                    android:id="@+id/txtInsertTitulo" android:layout_weight="1" android:hint="Bachillerato"
+                    android:id="@+id/txtModificarTitulo" android:layout_weight="1" android:hint="Bachillerato"
                     android:textSize="16sp" tools:ignore="TouchTargetSizeCheck" android:fontFamily="@font/poppins"/>
 
         </LinearLayout>
@@ -110,9 +110,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="42dp"/>
         <Button
-                android:text="Agregar Carrera"
+                android:text="Modificar Carrera"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/btnInCarrera"
+                android:layout_height="wrap_content" android:id="@+id/btnModCarrera"
                 style="@style/Widget.AppCompat.Button" app:cornerRadius="15dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:textStyle="bold"
                 android:textSize="16sp" android:textAlignment="center" android:textAllCaps="false"

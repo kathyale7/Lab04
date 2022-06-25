@@ -25,7 +25,6 @@ import kotlin.collections.ArrayList
 
 class CrudCarreras : AppCompatActivity(), Carreras_Adapter.onCarreraClickListener {
 
-    var jobforms: JobForms = JobForms.instance
 
     lateinit var lista2: RecyclerView
     lateinit var adaptador:Carreras_Adapter
@@ -73,8 +72,104 @@ class CrudCarreras : AppCompatActivity(), Carreras_Adapter.onCarreraClickListene
                 return false
             }
         })
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                val fromPosition: Int = viewHolder.adapterPosition
+                val toPosition: Int = target.adapterPosition
 
 
+                Collections.swap(archived, fromPosition, toPosition)
+
+                recyclerView.adapter?.notifyItemMoved(fromPosition, toPosition)
+
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+                position = viewHolder.adapterPosition
+
+                if(direction == ItemTouchHelper.LEFT){
+                    val call_eliminar_carrera = serviceGenerator.EliminarCarrera(archived[position].codigo)
+
+                    call_eliminar_carrera.enqueue(object : Callback<carrera>{
+                        override fun onResponse(call: Call<carrera>, response: Response<carrera>) {
+                            if (response.isSuccessful) {
+                                recyclerView.apply {
+                                    layoutManager = LinearLayoutManager(this@CrudCarreras)
+                                    archived.removeAt(position)
+                                    adapter?.notifyItemRemoved(position)
+                                    Toast.makeText(applicationContext, "Carrera eliminada.", Toast.LENGTH_SHORT).show()
+                                    adapter = Carreras_Adapter(archived, this@CrudCarreras)
+                                    adaptador = adapter as Carreras_Adapter
+
+
+                                }
+                                Log.e("success", response.body().toString())
+                            }
+                        }
+
+                        override fun onFailure(call: Call<carrera>, t: Throwable) {
+                            t.printStackTrace()
+                            Log.e("failed", t.message.toString())
+                        }
+
+                    })
+
+
+                    recyclerView.adapter = adaptador
+                } else {
+                    position = viewHolder.adapterPosition
+
+
+
+                    val i = Intent(this@CrudCarreras, ModificarCarrera::class.java)
+
+
+
+                    i.putExtra("pcod", archived[position].codigo)
+                    i.putExtra("pnom",archived[position].nombre)
+                    i.putExtra("ptit",archived[position].titulo)
+
+
+
+                    startActivity(i)
+                    Toast.makeText(applicationContext, "Carrera actualizada.", Toast.LENGTH_SHORT).show()
+                    recyclerView.adapter?.notifyDataSetChanged()
+                    recyclerView.adapter = adaptador
+                }
+
+            }
+            override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
+
+                RecyclerViewSwipeDecorator.Builder(this@CrudCarreras, c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(this@CrudCarreras, R.color.red))
+                    .addSwipeLeftActionIcon(R.drawable.ic_baseline_delete_24)
+                    .addSwipeRightBackgroundColor(ContextCompat.getColor(this@CrudCarreras, R.color.green))
+                    .addSwipeRightActionIcon(R.drawable.ic_baseline_edit_24)
+                    .create()
+                    .decorate()
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
+        val add: FloatingActionButton = findViewById(R.id.add_carrera)
+        add.setOnClickListener { view ->
+            Toast.makeText(this, "Insertar", Toast.LENGTH_SHORT).show()
+            Snackbar.make(view, "Se inserto la carrera correctamente.", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+
+
+            val i = Intent(this, InsertarCarrera::class.java)
+            recyclerView.adapter?.notifyDataSetChanged()
+
+            recyclerView.adapter = adaptador
+            startActivity(i)
+
+
+        }
 
 
 

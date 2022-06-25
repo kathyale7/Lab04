@@ -83,4 +83,15 @@ interface ApiService {
 
     @GET("mantenimientocarrera?accion=ver")
     fun getCarreras(): Call<MutableList<carrera>>
+
+    @GET("mantenimientocarrera?accion=Agregar")
+    fun AgregarCarrera(@Query("codigo") codigo:Int, @Query("nombre") nombre:String,
+                        @Query("titulo") titulo:String): Call<carrera>
+
+    @GET("mantenimientocarrera?accion=Actualizar")
+    fun ActualizarCarrera(@Query("codigo") codigo:Int, @Query("nombre") nombre:String,
+                          @Query("titulo") titulo:String): Call<carrera>
+
+    @GET("mantenimientocarrera?accion=eliminar")
+    fun EliminarCarrera(@Query("codigo") codigo:Int): Call<carrera>
 }
