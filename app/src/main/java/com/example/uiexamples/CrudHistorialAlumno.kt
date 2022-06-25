@@ -33,6 +33,8 @@ class CrudHistorialAlumno : AppCompatActivity(), Historial_Adapter.onHistorialCl
     lateinit var JobForm: JobForm
     var archived = ArrayList<matricula_class>()
     var position: Int = 0
+    var pnom: String = ""
+    var pcarr: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +45,8 @@ class CrudHistorialAlumno : AppCompatActivity(), Historial_Adapter.onHistorialCl
 
         val bundle = intent.extras
         val pced = bundle!!.getInt("ced")
-        val pnom = bundle!!.getString("nom")
-        val pcarr = bundle!!.getInt("carr")
+         pnom = bundle!!.getString("nom").toString()
+         pcarr = bundle!!.getInt("carr")
 
 
         new_cedula.setText(pced.toString())
@@ -76,6 +78,25 @@ class CrudHistorialAlumno : AppCompatActivity(), Historial_Adapter.onHistorialCl
 
         })
 
+        val add: FloatingActionButton = findViewById(R.id.add_matriculaN)
+        add.setOnClickListener { view ->
+            Toast.makeText(this, "Insertar", Toast.LENGTH_SHORT).show()
+            Snackbar.make(view, "", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+
+
+            val i = Intent(this, Matricula::class.java)
+            i.putExtra("ced", pced)
+            i.putExtra("pnom", pnom)
+            i.putExtra("pcarr", pcarr)
+            listaHistorialAd.adapter?.notifyDataSetChanged()
+
+            listaHistorialAd.adapter = adaptador
+            startActivity(i)
+
+
+        }
+
 
     }
 
@@ -85,7 +106,9 @@ class CrudHistorialAlumno : AppCompatActivity(), Historial_Adapter.onHistorialCl
     override fun onItemClick(historial: matricula_class) {
         val i = Intent(this@CrudHistorialAlumno, ConsultarJobApplication::class.java)
 
-        i.putExtra("poss", historial.alumno_id)
+        i.putExtra("ced", historial.alumno_id)
+        i.putExtra("pnom", pnom)
+        i.putExtra("pcarr", pcarr)
 
         startActivity(i)
     }

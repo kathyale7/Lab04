@@ -28,8 +28,7 @@
                 android:title="Ciclos"/>
         <item android:title="Oferta Academica" android:icon="@drawable/ic_catalog"
               android:id="@+id/nav_oferta"/>
-        <item android:title="Matricula" android:icon="@drawable/ic_form_new_28_regular"
-              android:id="@+id/nav_matricula"/>
+
 
         <item android:title="Seguridad" android:icon="@drawable/ic_menu_manage"
               android:id="@+id/nav_seguridad"/>

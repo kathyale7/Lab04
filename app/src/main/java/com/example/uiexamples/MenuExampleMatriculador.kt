@@ -102,7 +102,7 @@ class MenuExampleMatriculador : AppCompatActivity(), NavigationView.OnNavigation
             }
 
             R.id.nav_matriculaM -> {
-                val i = Intent(this, Matricula::class.java)
+                val i = Intent(this, CrudAlumnos::class.java)
                 startActivity(i)
             }
 

@@ -48,7 +48,7 @@ interface ApiService {
     @GET("mantenimientoalumnos?accion=eliminar")
     fun EliminarAlumno(@Query("id_alumno") id_alumno:Int): Call<alumno>
 
-    @GET("historial_alumno?accion=Buscar_alumno")
+    @GET("historial_alumno?accion=mi_historial")
     fun HistorialAlumnoAdmin(@Query("id_alumno") id_alumno:Int): Call<MutableList<matricula_class>>
 
     @GET("mantenimientoprofesor?accion=ver")
@@ -73,6 +73,10 @@ interface ApiService {
 
     @GET("historial_alumno?accion=matricula_grupo")
     fun AlumnosMatriculados(@Query("num_grupo") num_grupo:Int): Call<MutableList<matricula_class>>
+
+    @GET("historial_alumno?accion=Agregar")
+    fun NuevaMatricula(@Query("alumno_id") alumno_id:Int, @Query("curso_id") curso_id:Int,
+                       @Query("num_grupo") num_grupo:Int): Call<matricula_class>
 
     @GET("historial_alumno?accion=NotaNueva")
     fun ActualizarNota(@Query("cedula") cedula:Int, @Query("curso") curso:Int,
